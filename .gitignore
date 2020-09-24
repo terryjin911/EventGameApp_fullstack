@@ -4,6 +4,7 @@
 EventGameApp/node_modules/
 /node_modules
 /node_modules/
+EventGameApp/**/*/node_modules
 /.pnp
 .pnp.js
 
