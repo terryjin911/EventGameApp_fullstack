@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import axios from "axios";
+// import axios from "axios";
 const End = () => {
   //사용자 이름관리 스테이트 정의 및 초기값 세팅
   const [username, setUserName] = useState("");
@@ -10,9 +10,23 @@ const End = () => {
   const [user, setUser] = useState({
     name: "",
     email: "",
+    datetime: "",
+    entry_id: 1,
   });
 
-  const { name, email } = user;
+  //  React책 165page 데이터 추가 기능 구현하기
+
+  // const { name, email, datetime, entry_id } = users;
+  // const users = [`${name}, ${email}, ${datetime}, ${entry_id}`];
+  const users = ["name", "email", "datetime", "entry_id"];
+  const userList = users.map((users, index) => <li key={index}>{users}</li>);
+
+  const [inputText, setInputText] = useState("");
+  const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id
+
+  const onChnage = (e) => setInputText(e.target.value);
+
+  // const user
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
   const onUserChange = (e) => {
@@ -40,18 +54,18 @@ const End = () => {
       return false;
     }
 
-    const apiUrl = "http://localhost:800/api/entryusers/";
+    // const apiUrl = "http://localhost:800/api/entryusers/";
 
-    axios
-      .post(apiUrl, reserve)
-      .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        alert("등록완료");
-        history.push("List");
-      })
-      .catch((response) => {
-        console.error(response);
-      });
+    // axios
+    //   .post(apiUrl, reserve)
+    //   .then((response) => {
+    //     console.log("등록완료데이터:", response.data);
+    //     alert("등록완료");
+    //     // history.push("List");
+    //   })
+    //   .catch((response) => {
+    //     console.error(response);
+    //   });
   };
 
   //Ingame에서 받아온 totalScore
@@ -66,6 +80,7 @@ const End = () => {
       <div>
         {/* 점수표시 OR .... */}
         <h2>Score : </h2>
+        <ul>{userList}</ul>
       </div>
 
       {/* 응모 폼 */}
