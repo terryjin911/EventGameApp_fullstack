@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 
-import End from "./components/End";
+import End from "./page/End";
 //DAY4  >   hooksfunctionapp    >   joinform.js "nickname"을 "email"로 바꿨음
 //어 input.js를 따로 만들어야하나? => End.js
 // https://hyunseob.github.io/2019/06/02/react-component-the-right-way/

@@ -4,9 +4,9 @@ import { Route, Link } from "react-router-dom";
 import logo from "./logo192.png";
 import "./App.css";
 
-import Main from "./components/Main";
-import Board from "./components/Board";
-import End from "./components/End";
+import Main from "./page/Main";
+import Board from "./page/Board";
+import End from "./page/End";
 import GNB from "./GNB"
 
 function App() {

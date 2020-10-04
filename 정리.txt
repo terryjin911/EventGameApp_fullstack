@@ -1,0 +1,26 @@
+>참고하면서 진행
+강창훈강사님 강의시간 실습자료 booking, day4 day5 필기랑 ppt 참고하면서 진행했다.
+
+>실제 서비스 처럼 KEY를 명확하게 정의해야해
+
+>MySQL eventdb는 만들었는데.. 
+ entry랑 prize(=테이블명)은 어디서.....?
+
+
+[framework]     [DB key]
+python-django   Entry
+                EntryList
+(ex)            pydb - polls choice
+                eventdb - entry prize / entry save 뭐이런게 있으면 되지않을까?
+
+
+react.js        
+
+
+
+
+
+
+
+
+
