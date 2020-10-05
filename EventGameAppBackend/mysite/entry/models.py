@@ -7,6 +7,13 @@ from django.conf import settings
 
 # fullstack > booking 보면서 필요한 것만 쏙쏙 빼서 넣는 중 이러다가 한번씩 터지는 맛 아니겠나요^_^...
 class Entry(models.Model):
+
+    # 예약회원 고유번호 : 회원테이블의 id값 (FK)
+    # 사용자의 고유번호 pk가 123456... 사용자 고유번호로 찍히는거임
+    subscriber = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='Entrys'
+    )
+
     # 사용자 응모정보 : 이름과 이메일
     name = models.TextField(max_length=50)
     email = models.TextField(max_length=80)

@@ -25,18 +25,19 @@ from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from rest_framework.authtoken import views
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="My site OPEN API 명세서임^_^ㅋ",
-        default_version='롸?',
+        title="허걱스 swagger jagger 명세서까지는 열렸다^_^ㅋ",
+        default_version='version 1',
         description="이벤트 응모리스트 어플리케이션 관리 OPEN API입니다.",
         terms_of_service="https://www.github.com/terryjin911",
         contact=openapi.Contact(email="kukukthang1@outlook.com"),
-        license=openapi.License(name="terryjin Lisense? 뭔지몰라오^ㅇ^;"),
+        license=openapi.License(name="라이센스는 또 뭐람^ㅇ^;"),
     ),
     public=True,
-    permission_classes=(permissions.AllowAny),
+    # permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
 )
 
 # http://localhost:8000/swagger/
