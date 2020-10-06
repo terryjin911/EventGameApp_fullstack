@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// DAY7     >   react-redux-tutorial    >   Counter.js 베껴왔는데..얘 어케쓰냐
 
 function Button() {
   const [number, setNumber] = useState(0);

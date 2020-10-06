@@ -25,6 +25,35 @@ react.js
 
 
 
+>라우팅
+
+>강사님 예약서비스앱
+메인 localhost:3000
+예약하기 3000/booking/regist
+예약목록 3000/booking/list
+예약수정 3000/booking/detail
+
+
+>내 이벤트응모 앱
+내 경우에서는 이제
+메인 localhost:3000
+게임하기 3000/board  => 3000/ingame
+응모하기 3000/end    => 3000/entry
+응모확인 3000/list   => 3000/entry/list
+
+
+
+엥?
+axios다운받아서 axios연결하고
+http://localhost:8000/api/entry/ 접속되고나니까
+page/entry/end랑 list가 갑자기 터져버렸네
+
+
+
+
+
+
+
 
 
 

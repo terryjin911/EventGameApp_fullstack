@@ -19,7 +19,7 @@ const Ingame = (Button) => {
       }
 
       console.log(`${sec}초 경과, 게임 끝!`);
-      window.location = "/input"; //여기에 놓을거면 window.confirm 아니어도 alert를 했어도 됐음
+      window.location = "/entry/input/"; //여기에 놓을거면 window.confirm 아니어도 alert를 했어도 됐음
       //confirm을 놓은 이유는 true false를 하려고 놓은건데..
       //[취소]누르면 해당 페이지에 머무르,,,면 또 안되지않나 그럼 다시 응모하는 페이지로 넘기기 힘드니까?
       //어렵군 :(
@@ -34,7 +34,9 @@ const Ingame = (Button) => {
   //   window.location = "/input";
   //   return false;
   // }
-  return <div></div>;
+  return <div>
+    <Counter/>
+  </div>;
 };
 
 // 버튼을 눌러서 스코어를 증가시키는 함수

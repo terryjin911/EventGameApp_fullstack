@@ -6,7 +6,9 @@ import "./App.css";
 
 import Main from "./page/Main";
 import Board from "./page/Board";
-import End from "./page/End";
+import End from "./page/entry/End";
+import List from "./page/entry/List";
+
 import GNB from "./GNB"
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
             <br></br>
             <Link to="/">Main</Link>
             <br></br>
-            <Link to="/input">Input</Link>
+            <Link to="input">Input</Link>
             <br></br>
             <a
               className="App-link"
@@ -60,7 +62,8 @@ function App() {
 
           <Route path="/" component={Main} exact={true} />
           <Route path="/ingame" component={Board} />
-          <Route path="/input" component={End} />
+          <Route path="/entry/input/" component={End} />
+          <Route path="/entry/List" component={List} />
         </header>
 
         {/* <Button /> */}
