@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from "react-router-dom";
 
+import End from "./End";
 import axios from "axios";
 
 
@@ -10,6 +11,7 @@ const List = () => {
 
     //해당 컴포넌트에서 사용할 응모유저 리스트 useState
     const [entryList, setEntryList] = useState([]);
+    // const entryList = users.map((users, index) => <li key={index}> {users} </li>;
 
 
     useEffect(() => {
@@ -20,7 +22,7 @@ const List = () => {
         .get(apiUrl)
         .then((response) => {
           console.log("조회완료 데이터: ", response.data);
-  
+          history.push("/");
           setEntryList(response.data);
         })
         .catch((response) => {

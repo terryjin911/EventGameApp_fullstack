@@ -28,7 +28,7 @@ function App() {
             <br></br>
             <Link to="/">Main</Link>
             <br></br>
-            <Link to="input">Input</Link>
+            <Link to="/entry/input">Input</Link>
             <br></br>
             <a
               className="App-link"

@@ -39,24 +39,6 @@ const Ingame = (Button) => {
   </div>;
 };
 
-// 버튼을 눌러서 스코어를 증가시키는 함수
-// const Score = ({ number, onIncrease }) => {
-//   return (
-//     <div>
-//       <h2>Score : {number}</h2>
-
-//       <div>
-//         <button onClick={onIncrease}>score</button>
-//         <button onClick={onIncrease}>score</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-//Counter.js는 잘 작동되는데
-//그게 Border.js에서 돌아가고 setTimeout도
-//return됐으면 좋겠다
-
 const Score = (Counter) => {
   return <div></div>;
 };
