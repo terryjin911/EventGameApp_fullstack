@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-from entry.views import EntryList
+# from entry.views import EntryList
 
 # drf ( django rest framework )
 from rest_framework import routers, permissions
@@ -37,7 +37,10 @@ schema_view = get_schema_view(
         license=openapi.License(name="라이센스는 또 뭐람^ㅇ^;"),
     ),
     public=True,
-    permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
+    # permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
 )
 
 # http://localhost:8000/swagger/
