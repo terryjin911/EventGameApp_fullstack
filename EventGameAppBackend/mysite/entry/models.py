@@ -23,7 +23,7 @@ class Entry(models.Model):
     
 
     def __str__(self):
-        return self.score.email+""+self.datetime
+        return self.no.username+""+self.email
 
     # 우리 랜덤짤짤이 돌릴거라 목록데이터 내림차순 정렬은 필요없지 않나..? 걍 해놓기? optional이지만 내맘이니가^_^,,그것이,,프로그래밍이니가,,,
     class Meta:

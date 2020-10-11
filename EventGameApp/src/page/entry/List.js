@@ -17,6 +17,16 @@ const List = () => {
     // const entryList = users.map((users, index) => <li key={index}> {users} </li>;
 
 
+
+
+    // const [user, setUser] = useState({
+    //     no:1,
+    //     name: "",
+    //     email: "",
+    //     datetime: "",
+    //     entry_id: 1,
+    //   });
+
     useEffect(() => {
         const apiUrl = "http://localhost:8000/api/entry/"
 

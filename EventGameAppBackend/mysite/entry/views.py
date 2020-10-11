@@ -19,10 +19,10 @@ class EntryList(generics.ListCreateAPIView):
 
 
 # # Detail View는 단일 건 조회하고 업데이트하고 삭제함
-# class EntryDetail(generics.RetrieveUpdateAPIView):
-#     queryset = Entry.objects.all()
+class EntryDetail(generics.RetrieveUpdateAPIView):
+    queryset = Entry.objects.all()
 
-#     serializer_class = EntrySerializer
+    serializer_class = EntrySerializer
 
 
 

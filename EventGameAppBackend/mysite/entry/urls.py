@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.EntryList.as_view()),
 
     # # /api/entry/5
-    # path('<int:pk>/', views.EntryDetail.as_view),
+    path('<int:pk>/', views.EntryDetail.as_view),
 ]

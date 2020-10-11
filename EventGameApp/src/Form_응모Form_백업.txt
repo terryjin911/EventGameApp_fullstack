@@ -120,63 +120,42 @@ function Form() {
 
 
 
-  return (
-    // <div>
+ return (
+    <div>
     
-      <div>
-        <table>
-          <tbody>
-            {/* ingame에서 받아온 score값 띄우기 */}
-            {/* <tr>
-              <td>Score : </td>
-              <td>
-                {Number}점 기록
-              </td>
-            </tr> */}
+      <form onSubmit={handleSubmit}>
+        {/* <input type="name" placeholder="이름" value={name} onChange={(target:{value})=> setName(value)} />
+            <input type="email" placeholder="이메일" value={email} onChange={(target: {value}) => setEmail(value)} /> */}
+        <input
+          type="name"
+          placeholder="이름"
+          value={user.name}
+          onChange={handleChangeName}
+        />
+        <input
+          type="email"
+          placeholder="이메일"
+          value={user.email}
+          onChange={handleChangeEmail}
+        />
+        
+        <input
+          type="text"
+          placeholder="no"
+          value={user.no}
+          onChange={handleChangeNo}
+        />
+
+        <input
+          type="text"
+          placeholder="datetime"
+          value={user.datetime}
+          onChange={handleChangeDatetime}
+        />
 
 
-            <tr>
-              <td>Name :</td>
-              <td>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="이름을 입력하세요"
-                  value={user.name}
-                  onChange={(e) => onUserChange(e)}
-                />
-              </td>
-            </tr>
-
-
-            <tr>
-              <td>Email :</td>
-              <td>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="이메일을 입력하세요"
-                  value={user.email}
-                  onChange={(e) => onUserChange(e)}
-                />
-              </td>
-            </tr>
-
-            <br></br>
-
-            <tr>
-              <td>
-                {/* 응모 폼 전송버튼 */}
-                <button onClick={() => onEntryDataSave()}> 응모 </button>
-                <button onClick={() => onEntryList()}> 응모확인 </button>
-              </td>
-            </tr>
-
-
-          </tbody>
-        </table>
-      </div>
+        <button onClick={onEntryDataSave}>응모하기</button>
+      </form>
+    </div>
   );
 }
-
-export default Form;
