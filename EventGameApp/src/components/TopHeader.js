@@ -9,19 +9,19 @@ const TopHeader = () => {
             <header className="App-header"> */}
 
       {/* 페이지 이동 */}
-      <div style={{ textAlign: "left" }}>
-        <br></br>
-        <Link to="/">Main</Link>
-        <br></br>
-        <Link to="/input">Input</Link>
-        <br></br>
+      <div className="App-link" style={{ textAlign: "center" }}>
+        <Link to="/">Main | </Link>
+        <Link to="/entry/input/">Input |</Link>
+        <Link to="/entry/list">응모확인 | </Link>
+        {/* <Link to="/info">얘는신경쓰지마셈ㅎ |</Link> */}
+
         <a
           className="App-link"
           href="https://github.com/terryjin911"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Go Chill
+          Github
         </a>
       </div>
     </div>

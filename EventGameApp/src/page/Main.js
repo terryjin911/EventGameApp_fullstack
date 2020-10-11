@@ -1,5 +1,6 @@
 import React from "react";
-import Board from "./Board";
+
+import TopHeader from "../components/TopHeader";
 
 //게임설명과 startButton이 있는 화면
 const Main = () => {
@@ -15,13 +16,21 @@ const Main = () => {
     
   return (
     <div>
-      
-      {/* <br></br> */}
-      {/* <a className="App-start" rel="noopener noreferrer"> */}
-        <button onClick={() => onStart()}>START</button>
-      {/* </a> */}
-      {/* <br></br>
-      <br></br> */}
+      <TopHeader/>
+
+      {/* D_pink */}
+      <div className="app">
+        <img src="/img/logo192.svg" className="App-logo" alt="logo" />
+      </div>
+
+
+
+      {/* START버튼 */}
+      <button onClick={() => onStart()}>START</button>
+
+
+
+      {/* 게임설명 */}
       <h3>
         <p>
           start 버튼을 눌러서 게임시작!<br></br>
@@ -30,6 +39,11 @@ const Main = () => {
           SCORE를 올려보세요!
         </p>
       </h3>
+
+
+
+
+
     </div>
   );
 };

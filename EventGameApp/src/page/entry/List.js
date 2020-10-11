@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from "react-router-dom";
 
 import End from "./End";
+import TopHeader from "../../components/TopHeader";
+
+
 import axios from "axios";
 
 
@@ -32,7 +35,8 @@ const List = () => {
 
     return (
         <div>
-          
+            <TopHeader/>
+
 
             <h1>응모확인 페이지</h1>
 

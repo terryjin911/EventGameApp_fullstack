@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import Counter from "../Counter";
+import TopHeader from "../components/TopHeader";
 
 const Ingame = (Button) => {
   const [sec, setSec] = useState();
@@ -35,6 +37,14 @@ const Ingame = (Button) => {
   //   return false;
   // }
   return <div>
+    
+    <TopHeader/>
+    {/* D_pink */}
+    <div className="app">
+      <img src="/img/logo192.svg" className="App-logo" alt="logo" />
+    </div>
+
+    {/* 스코어버튼 */}
     <Counter/>
   </div>;
 };
