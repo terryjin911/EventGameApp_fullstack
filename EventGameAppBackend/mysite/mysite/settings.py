@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -135,7 +136,7 @@ SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         "api_key": {
             "type": "apikey",
-            "name": "authorization",
+            "name": "Authorization",
             "in": "header",
         }
     }

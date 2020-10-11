@@ -35,7 +35,7 @@ const List = () => {
         .get(apiUrl)
         .then((response) => {
           console.log("조회완료 데이터: ", response.data);
-          history.push("/");
+        //   history.push("/");
           setEntryList(response.data);
         })
         .catch((response) => {
