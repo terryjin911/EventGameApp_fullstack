@@ -37,7 +37,7 @@ schema_view = get_schema_view(
         license=openapi.License(name="라이센스는 또 뭐람^ㅇ^;"),
     ),
     public=True,
-    # permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
+    permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
 )
 
 # http://localhost:8000/swagger/

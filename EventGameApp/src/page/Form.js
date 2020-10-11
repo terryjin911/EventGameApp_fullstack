@@ -126,13 +126,6 @@ function Form() {
       <div>
         <table>
           <tbody>
-            {/* ingame에서 받아온 score값 띄우기 */}
-            {/* <tr>
-              <td>Score : </td>
-              <td>
-                {Number}점 기록
-              </td>
-            </tr> */}
 
 
             <tr>
