@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 
 function Button() {
-  const [number, setNumber] = useState(0);
+  const [num, setNum] = useState(0);
 
   const onIncrease = () => {
-    setNumber((prevNumber) => prevNumber + 14500);
-    console.log(`${number}점 기록`);
+    setNum((prevNum) => prevNum + 14500);
+    console.log(`${num}점 기록`);
   };
 
   return (
     <div>
-      <h1>Score: {number}</h1>
+      <h1>Score: {num}</h1>
       <br></br>
       <button onClick={onIncrease}>+1</button>
       <button onClick={onIncrease}>+1</button>

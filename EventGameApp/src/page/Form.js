@@ -17,26 +17,6 @@ function Form() {
   }
 
 
-  
-         //  React책 165page 데이터 추가 기능 구현하기
-
-  // const { name, email, datetime, entry_id } = users;
-  // const users = [`${name}, ${email}, ${datetime}, ${entry_id}`];
-  const users = ["name", "email", "datetime", "entry_id"];
-  // 이 엔트리리스트 list.js 로 가셔야할것같은데욥...
-  const entryList = users.map((users, index) => <li key={index}>{users}</li>);
-
-  const [inputText, setInputText] = useState("");
-  const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id
-
-  const onChnage = (e) => setInputText(e.target.value);
-
-
-
-  //사용자 이름관리 스테이트 정의 및 초기값 세팅
-  const [username, setUserName] = useState("");
-  const [useremail, setUserEmail] = useState("");
-
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
@@ -68,16 +48,6 @@ function Form() {
   const handleChangeDatetime = useCallback(({ target: { value } }) => {
     setDatetime(value);
   }, []);
-
-
-
-
-  //input이 다시 렌더링되지 않게하는 함수
-  const handleSubmit = useCallback(() => {
-    console.log(name, email);
-  }, [name, email, no, datetime]);
-
-
 
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
@@ -121,13 +91,12 @@ function Form() {
 
 
   return (
-    // <div>
     
       <div>
         <table>
           <tbody>
 
-
+            {/* 응모폼 작성하는 곳 */}
             <tr>
               <td>Name :</td>
               <td>
@@ -155,8 +124,6 @@ function Form() {
               </td>
             </tr>
 
-            <br></br>
-
             <tr>
               <td>
                 {/* 응모 폼 전송버튼 */}
@@ -169,6 +136,7 @@ function Form() {
           </tbody>
         </table>
       </div>
+
   );
 }
 

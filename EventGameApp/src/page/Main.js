@@ -6,16 +6,14 @@ import TopHeader from "../components/TopHeader";
 const Main = () => {
 
   const onStart = () => {
-  
-    // let history = useHistory();
     window.location = "/ingame";
-    
-    // history.push("Input");
     console.log("게임시작!");
   }
     
   return (
     <div>
+
+
       <TopHeader/>
 
       {/* D_pink */}
@@ -42,36 +40,8 @@ const Main = () => {
 
 
 
-
-
     </div>
   );
 };
-
-
-
-//function을 이렇게 쓰는게 아닌것같은 느김^_^,,,,
-
-
-// const onStart = () => {
-  
-//   let history = useHistory();
-//   // window.location = "/input";
-  
-//   history.push("Input");
-//   console.log("게임시작!");
-
-
-//   return <div>
-//     <div>
-
-//       <br></br>
-//       <a className="App-start" ref="/ingame" rel="noopener noreferrer">
-//         <button onClick={() => onStart()}>START</button>
-//       </a>
-      
-//     </div>    
-//   </div>;
-// };
 
 export default Main;

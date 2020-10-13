@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from "react-router-dom";
 
-import End from "./End";
 import TopHeader from "../../components/TopHeader";
 
 
@@ -10,22 +9,13 @@ import axios from "axios";
 
 
 const List = () => {
-    let history = useHistory();
+    // let history = useHistory();
 
     //해당 컴포넌트에서 사용할 응모유저 리스트 useState
     const [entryList, setEntryList] = useState([]);
     // const entryList = users.map((users, index) => <li key={index}> {users} </li>;
 
 
-
-
-    // const [user, setUser] = useState({
-    //     no:1,
-    //     name: "",
-    //     email: "",
-    //     datetime: "",
-    //     entry_id: 1,
-    //   });
 
     useEffect(() => {
         const apiUrl = "http://localhost:8000/api/entry/"
@@ -45,6 +35,8 @@ const List = () => {
 
     return (
         <div>
+
+
             <TopHeader/>
 
 
@@ -61,6 +53,9 @@ const List = () => {
                     </React.Fragment>
                 )
             })}
+
+
+
         </div>
     );
 };

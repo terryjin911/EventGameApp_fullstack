@@ -3,22 +3,12 @@ import React, { useState } from "react";
 
 import TopHeader from "../../components/TopHeader";
 import Form from "../Form";
-import axios from "axios";
+// import axios from "axios";
 
 const End = () => {
 
 
-
-
   const [number, setNumber] = useState(0);
-
-  // const onClickFunction = (e) => {
-  //   window.confirm(
-  //     `응모자 성함과 이메일 정보를 확인해주세요 ${username}, ${useremail}` //왜 둘중 하나만 뜨냐
-  //   );
-  //   setUserName("");
-  //   setUserEmail("");
-  // };
 
 
   //Ingame에서 받아온 totalScore
@@ -28,6 +18,9 @@ const End = () => {
   //     <h1>나의 총 Score: {props.totalScore}</h1>;
   //     </div>
   // }
+
+
+
   return (
     <div>
       <TopHeader/>
