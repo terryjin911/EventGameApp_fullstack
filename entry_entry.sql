@@ -15,7 +15,7 @@ CREATE TABLE entry_entry
 
 # 컬럼 추가 
 ALTER TABLE entry_entry ADD no_id INT;
-
+ALTER TABLE entry_entry ADD score INT NOT NULL;
 
 
 show databases;

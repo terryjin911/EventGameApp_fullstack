@@ -17,8 +17,7 @@ class Entry(models.Model):
     # 사용자 응모정보 : 이름과 이메일
     name = models.TextField(max_length=50)
     email = models.TextField(max_length=80)
-    
-    # score = 이건..입력값이 들어와야하는 값인데 db로 쏴주는 어쩌구를 알아봐야겠다
+    score = models.IntegerField
     datetime = models.DateTimeField(auto_now_add=True)
     
 

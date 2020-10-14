@@ -3,8 +3,12 @@ import React, { useState, useEffect } from "react";
 import Counter from "../components/Counter";
 import TopHeader from "../components/TopHeader";
 
-const Ingame = (Button) => {
+const Game = (Button) => {
   const [sec, setSec] = useState();
+
+
+
+
 
   useEffect(() => {
     //컴포넌트가 마운트 되고 setTimeout 함수를 실행
@@ -31,9 +35,7 @@ const Ingame = (Button) => {
     };
   }, []); //두번째 인자로 빈 배열 넣어주기
 
-
-
-
+    
 
   return <div>
     
@@ -56,4 +58,4 @@ const Ingame = (Button) => {
   </div>;
 };
 
-export default Ingame;
+export default Game;

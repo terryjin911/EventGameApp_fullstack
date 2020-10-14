@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import TopHeader from "../../components/TopHeader";
 
@@ -25,7 +25,6 @@ const List = () => {
         .get(apiUrl)
         .then((response) => {
           console.log("조회완료 데이터: ", response.data);
-        //   history.push("/");
           setEntryList(response.data);
         })
         .catch((response) => {

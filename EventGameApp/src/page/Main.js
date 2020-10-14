@@ -6,7 +6,7 @@ import TopHeader from "../components/TopHeader";
 const Main = () => {
 
   const onStart = () => {
-    window.location = "/ingame";
+    window.location = "/Game";
     console.log("게임시작!");
   }
     

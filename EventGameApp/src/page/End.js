@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 
-import TopHeader from "../../components/TopHeader";
-import Form from "../Form";
+import TopHeader from "../components/TopHeader";
+import Form from "./entry/Form";
 // import axios from "axios";
 
 const End = () => {
