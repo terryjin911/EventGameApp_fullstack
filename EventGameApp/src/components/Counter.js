@@ -5,9 +5,9 @@ import axios from "axios";
 function Button() {
   const [score, setScore] = useState(0);
 
-  const [user, setUser] = useState({
-    score:"",
-  })
+  // const [user, setUser] = useState({
+  //   score:"",
+  // })
 
   // const [user, setUser] = useState({
   //   no:1,
@@ -24,18 +24,18 @@ function Button() {
 
 
   // Score를 DB에 쏴버리기
-  const apiUrl = "http://localhost:8000/api/entry/";
+  // const apiUrl = "http://localhost:8000/api/entry/";
 
-  axios
-    .post(apiUrl, score)
-    .then((response) => {
-      console.log("점수데이터전송:", response.data);
-      // alert("등록완료");
-      // history.push("/entry/List");
-    })
-    .catch((response) => {
-      console.error(response);
-    });
+  // axios
+  //   .post(apiUrl, score)
+  //   .then((response) => {
+  //     console.log("점수데이터전송:", response.data);
+  //     // alert("등록완료");
+  //     // history.push("/entry/List");
+  //   })
+  //   .catch((response) => {
+  //     console.error(response);
+  //   });
 
   return (
     <div>
