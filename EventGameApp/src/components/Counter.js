@@ -5,9 +5,6 @@ import axios from "axios";
 function Button() {
   const [score, setScore] = useState(0);
 
-  // const [user, setUser] = useState({
-  //   score:"",
-  // })
 
   // const [user, setUser] = useState({
   //   no:1,
@@ -16,12 +13,11 @@ function Button() {
   //   datetime: "",
   //   entry_id: 1,
   // });
-  
+
   const onIncrease = () => {
     setScore((prevScore) => prevScore + 14500);
     console.log(`${score}점 기록`);
   };
-
 
   // Score를 DB에 쏴버리기
   // const apiUrl = "http://localhost:8000/api/entry/";

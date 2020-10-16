@@ -1,3 +1,14 @@
+4개 페이지
+1) Main     
+2) Board    [Counter + score] 데이터
+3) End      Form컴포넌트와 2에서 가져온 score데이터를 같이 보여줘야함
+4) List     List에도 score데이터가 들어감
+    ㄴ강사님이 DB에 들어가있는거 빼서 쓰게 해보라고하셨는데 아 무리
+
+
+
+
+
 >참고하면서 진행
 강창훈강사님 강의시간 실습자료 fullstack-booking, day4 day5 필기랑 ppt 참고하면서 진행했다.
                                                 day2에 props 던져주는거 있는데 이거해볼까..
