@@ -90,8 +90,8 @@ function Form() {
       .get(apiUrl)
       .then((response) => {
         console.log("등록완료데이터:", response.data);
-        alert("등록완료");
-        setEntryList(response.data);
+        alert("score axios alert");
+        user.score(response.data);
       })
       .catch((response) => {
         console.error(response);
