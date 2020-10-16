@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 
-
 import TopHeader from "../components/TopHeader";
 import Form from "./entry/Form";
 // import axios from "axios";
 
 const End = () => {
-
-
-  const [number, setNumber] = useState(0);
-
+  // const [number, setNumber] = useState(0);
 
   //Ingame에서 받아온 totalScore
   // const totalScore {
@@ -19,28 +15,23 @@ const End = () => {
   //     </div>
   // }
 
-
-
   return (
     <div>
-      <TopHeader/>
-      
-
+      <TopHeader />
 
       {/* D_blue */}
       <div className="app">
         <img src="/img/logo512.svg" className="App-logo" alt="logo" />
       </div>
 
-
       <div>
         <h1>응모페이지</h1>
-        
+
         {/* 총 점수 기록 */}
-        <h2>Score : {number}점</h2>
+        {/* <h2>Score : {number}점</h2> */}
       </div>
 
-      <Form/>
+      <Form />
     </div>
   );
 };

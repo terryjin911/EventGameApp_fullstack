@@ -18,12 +18,12 @@ function Form() {
 
   // DB에 저장한 score데이터
   const [entryList, setEntryList] = useState([]);
-
+  const [resultScore, setResultScore] = useState([]);
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
     no: 1,
-    score: "",
+    resultScore: 0,
     name: "",
     email: "",
     datetime: "",
@@ -75,6 +75,7 @@ function Form() {
     // Axios 백엔드
     const apiUrl = "http://localhost:8000/api/entry/";
 
+    // user 응모정보 이름/이메일
     axios
       .post(apiUrl, user)
       .then((response) => {
@@ -86,12 +87,13 @@ function Form() {
         console.error(response);
       });
 
+    //Counter의 점수를 DB에서 가지고와서 보여주자
     axios
       .get(apiUrl)
       .then((response) => {
         console.log("등록완료데이터:", response.data);
-        alert("score axios alert");
-        user.score(response.data);
+        alert("score axios error 덜덜쓰...");
+        setResultScore(response.data);
       })
       .catch((response) => {
         console.error(response);
@@ -100,15 +102,16 @@ function Form() {
 
   return (
     <div>
+      {/* 이건 어설프게 props 써먹으려다가 망함 */}
       {/* <Counter score={score} value={user.score} /> */}
-      {entryList.map((item, i) => {
+      Score :
+      {resultScore.map((item, i) => {
         return (
-          <React.Fragment>
+          <React.Fragment key={item.id}>
             <div>{item.score}</div>
           </React.Fragment>
         );
       })}
-
       <table>
         <tbody>
           {/* 응모폼 작성하는 곳 */}
