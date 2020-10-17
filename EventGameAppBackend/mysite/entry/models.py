@@ -13,13 +13,13 @@ class Entry(models.Model):
     # 예약회원 고유번호 : 회원테이블의 id값 (FK)
     # 사용자의 고유번호 pk가 123456... 사용자 고유번호로 찍히는거임
     no = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='Entrys'
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='entrys'
     )
 
     # 사용자 응모정보 : 이름과 이메일
     name = models.TextField(max_length=50)
     email = models.TextField(max_length=80)
-    score = models.IntegerField
+    score = models.IntegerField(default=0)
     datetime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

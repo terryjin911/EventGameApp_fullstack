@@ -12,10 +12,12 @@ EventGameApp/**/*/node_modules
 
 # python
 __pycache__
+mysite/__pycache__
+
 
 # testing
 /coverage
-
+debug.log
 # production
 /build
 

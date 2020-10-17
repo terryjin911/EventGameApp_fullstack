@@ -37,9 +37,7 @@ const List = () => {
         return (
           <React.Fragment key={item.id}>
             <div>
-              <Link to={`/entry/list/${item.id}`}>
                 {item.name} | {item.score} | {item.datetime}
-              </Link>
             </div>
           </React.Fragment>
         );
