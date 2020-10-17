@@ -23,10 +23,16 @@ function Form() {
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
     no: 1,
+<<<<<<< HEAD
     resultScore: 0,
     name: "",
     email: "",
     datetime: "",
+=======
+    score: 0,
+    name: "아설마아니지..?",
+    email: "form인데 값 비워놨다고 여지껏 안 된거 아니지..? 이거 설마전송되니..?",
+>>>>>>> trybackend
     entry_id: 1,
   });
 
@@ -106,9 +112,9 @@ function Form() {
       {/* <Counter score={score} value={user.score} /> */}
       Score :
       {resultScore.map((item, i) => {
-        return (
+        return (        
           <React.Fragment key={item.id}>
-            <div>{item.score}</div>
+            <div>{item.score}</div>                                                         //이거 하나씩 뽑아서 올리는거 있을거야
           </React.Fragment>
         );
       })}

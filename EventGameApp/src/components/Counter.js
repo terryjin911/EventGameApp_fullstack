@@ -21,25 +21,25 @@ function Button() {
   //   secRef.current = sec;
   // });
 
-  const secc = useRef(1);
-  const setSecc = (n) => {
-    secc.current = n;
-  }
-  const printSecc = () => {
-    console.log(secc.current);
-  }
+  // const secc = useRef(1);
+  // const setSecc = (n) => {
+  //   secc.current = n;
+  // }
+  // const printSecc = () => {
+  //   console.log(secc.current);
+  // }
 
-  const [completed, setCompleted] = useState(0);
-  const testData = [
-    { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
-  ];
+  // const [completed, setCompleted] = useState(0);
+  // const testData = [
+  //   { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
+  // ];
 
   useEffect(() => {
 
     setTimeout(() => {
       // setInterval(() => setCompleted(Math.floor(Math.random * 100) + 1), 4800);
-      let timerId = setInterval(() => alert('tick'), 2000); //(111-2) 얘가 에러나네?
-      console.log("setInterval 작동하냐? :", timerId);
+      // let timerId = setInterval(() => alert('tick'), 2000); //(111-2) 얘가 에러나네?
+      // console.log("setInterval 작동하냐? :", timerId);
 
       // const time = 5;
       // const seconds = "";
@@ -62,10 +62,11 @@ function Button() {
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
       console.log("현재 최종 스코어는???", scoreRef.current);
 
+      //왜냐하면 여기서 name,email 값을 ""로 넣으면 전송이 안 되더라^_^,,,,,,,,,아
       if (window.confirm("응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다.") == true) {
         var data = {
-          name: "user1",
-          email: "test@test.co.kr",
+          name: "점수데이터 name",
+          email: "점수데이터 email",
           score: scoreRef.current,
           no: 1,
         };
@@ -114,11 +115,11 @@ function Button() {
         <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
       </div> */}
 
-      <div>
+      {/* <div>
          {testData.map((item, idx) => (
           <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
          ))}
-       </div>
+       </div> */}
       
 
       <h1>Score: {score}</h1>
