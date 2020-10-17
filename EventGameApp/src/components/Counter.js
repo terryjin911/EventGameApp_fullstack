@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 import axios from "axios";
 
+import ProgressBar from "../components/progress-bar.component";
+
 function Button() {
   const [score, setScore] = useState(0);
 
@@ -14,31 +16,53 @@ function Button() {
     scoreRef.current = score;
   });
 
-  // const onChange = useCallback((e) => {
-  //   setValue(e.target.value);
-  // }, []);
-
-  // const onChange =(e) => {
-  //   setValue(e.target.value)
-  // };
-
-  // const [user, setUser] = useState({
-  //   score: "",
+  // let secRef = useRef("");
+  // useEffect(() => {
+  //   secRef.current = sec;
   // });
 
-  // const [user, setUser] = useState({
-  //   no:1,
-  //   name: "",
-  //   email: "",
-  //   datetime: "",
-  //   entry_id: 1,
-  // });
+  const secc = useRef(1);
+  const setSecc = (n) => {
+    secc.current = n;
+  }
+  const printSecc = () => {
+    console.log(secc.current);
+  }
+
+  const [completed, setCompleted] = useState(0);
+  const testData = [
+    { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
+  ];
 
   useEffect(() => {
+
     setTimeout(() => {
+      // setInterval(() => setCompleted(Math.floor(Math.random * 100) + 1), 4800);
+      let timerId = setInterval(() => alert('tick'), 2000); //(111-2) 얘가 에러나네?
+      console.log("setInterval 작동하냐? :", timerId);
+
+      // const time = 5;
+      // const seconds = "";
+
+      // const x = setInterval(function() {
+      //   // seconds = time%5;                               //(111-1) 얘때문에
+
+      //   document.getElementById("demo").innerHTML = seconds +"초";
+
+      //   time--;
+
+      //   //타임아웃시
+      //   if (time < 0) {
+      //     clearInterval(x);
+      //     document.getElementById("demo").innerHTML = "시간 끗ㅋ"
+      //   };
+      // })
+
+
+      // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
       console.log("현재 최종 스코어는???", scoreRef.current);
 
-      if (window.confirm("응모 페이지를 이동하시겠습니까?") == true) {
+      if (window.confirm("응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다.") == true) {
         var data = {
           name: "user1",
           email: "test@test.co.kr",
@@ -61,6 +85,8 @@ function Button() {
       } else {
         return false;
       }
+
+
     }, 5000);
 
     return () => {
@@ -77,10 +103,24 @@ function Button() {
     setScore({ ...score, [e.target.value]: e.target.value });
   };
 
-  const onEntryDataSave = () => {};
+
+
 
   return (
     <div>
+
+      {/* progrss bar */}
+      {/* <div>
+        <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
+      </div> */}
+
+      <div>
+         {testData.map((item, idx) => (
+          <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
+         ))}
+       </div>
+      
+
       <h1>Score: {score}</h1>
       <br></br>
       <button onClick={onIncrease}>+1</button>

@@ -5,15 +5,6 @@ import Form from "./entry/Form";
 // import axios from "axios";
 
 const End = () => {
-  // const [number, setNumber] = useState(0);
-
-  //Ingame에서 받아온 totalScore
-  // const totalScore {
-
-  //   return <div>
-  //     <h1>나의 총 Score: {props.totalScore}</h1>;
-  //     </div>
-  // }
 
   return (
     <div>
