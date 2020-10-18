@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
 
-import Counter from "../components/Counter";
-import TopHeader from "../components/TopHeader";
+import Counter from '../components/Counter';
+import TopHeader from '../components/TopHeader';
 
-const Game = (Button) => {
+const Game = () => {
   return (
     <div>
       <TopHeader />

@@ -1,20 +1,9 @@
-import React, { useState } from "react";
+import React from 'react';
 
-import TopHeader from "../components/TopHeader";
-import Form from "./entry/Form";
-// import axios from "axios";
+import TopHeader from '../components/TopHeader';
+import Form from './entry/Form';
 
 const End = () => {
-  // const [number, setNumber] = useState(0);
-
-  //Ingame에서 받아온 totalScore
-  // const totalScore {
-
-  //   return <div>
-  //     <h1>나의 총 Score: {props.totalScore}</h1>;
-  //     </div>
-  // }
-
   return (
     <div>
       <TopHeader />
@@ -26,11 +15,9 @@ const End = () => {
 
       <div>
         <h1>응모페이지</h1>
-
-        {/* 총 점수 기록 */}
-        {/* <h2>Score : {number}점</h2> */}
       </div>
 
+      {/* 응모폼 */}
       <Form />
     </div>
   );

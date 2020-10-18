@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import Counter from "../../components/Counter";
-import axios from "axios";
+import Counter from '../../components/Counter';
+import axios from 'axios';
 
 //Info.js를 Form으로 바꿉니다
 //DAY4  >   hooksfunctionapp    >   joinform.js "nickname"을 "email"로 바꿨음
@@ -12,9 +12,47 @@ import axios from "axios";
 function Form() {
   let history = useHistory();
 
+  // let scoreRef = useRef('');
+  // useEffect(() => {
+  //   scoreRef.current = score;
+  // });
+
   const onEntryList = () => {
-    history.push("/entry/List");
+    //   var data = {
+    //     name: 'user1',
+    //     email: 'test@test.co.kr',
+    //     score: scoreRef.current,
+    //     no: 1,
+    //   };
+
+    // const apiUrl = 'http://localhost:8000/api/entry/';
+    // //Counter에서 기록한 최종점수를 응모폼에 뿌려주기
+    // axios
+    //   .get(apiUrl)
+    //   .then((response) => {
+    //     console.log('전송받은 사용자의 최종스코어:', response.data);
+    //     alert('아무래도 최종스코어 데이터가 못 올라가는 것 같죠?^_^;;');
+    //     data(response.data);
+    //   })
+    //   .catch((response) => {
+    //     console.error(response);
+    //   });
+
+    history.push('/entry/List');
   };
+
+  // const apiUrl = 'http://localhost:8000/api/entry/';
+  // //Counter에서 기록한 최종점수를 응모폼에 뿌려주기
+  // axios
+  //   .get(apiUrl)
+  //   .then((response) => {
+  //     console.log('전송받은 사용자의 최종스코어:', response.data);
+  //     alert('아무래도 최종스코어 데이터가 못 올라가는 것 같죠?^_^;;');
+  //     data(response.data);
+  //   })
+  //   .catch((response) => {
+  //     console.error(response);
+  //   });
 
   // DB에 저장한 score데이터
   const [entryList, setEntryList] = useState([]);
@@ -23,18 +61,18 @@ function Form() {
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
     no: 1,
-    resultScore: 0,
-    name: "",
-    email: "",
-    datetime: "",
+    Score: 0,
+    name: '',
+    email: '',
+    datetime: '',
     entry_id: 1,
   });
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [no, setNo] = useState("");
-  const [datetime, setDatetime] = useState("");
-  const [score, setScore] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [no, setNo] = useState('');
+  const [datetime, setDatetime] = useState('');
+  const [score, setScore] = useState('');
 
   const handleChangeName = useCallback(({ target: { value } }) => {
     setName(value);
@@ -52,48 +90,36 @@ function Form() {
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
   const onUserChange = (e) => {
-    console.log("이건뭐지");
+    console.log('이건뭐지');
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   //데이터 백엔드 저장처리함수
   const onEntryDataSave = () => {
-    console.log("이름이메일입력");
+    console.log('이름이메일입력');
     // 유효성검사 만약 form이 비어있으면
-    if (user.name == "") {
-      alert("이름을 입력해주세요.");
+    if (user.name == '') {
+      alert('이름을 입력해주세요.');
       return false;
     }
 
-    if (user.email == "") {
-      alert("이메일을 입력해주세요.");
+    if (user.email == '') {
+      alert('이메일을 입력해주세요.');
       return false;
     }
   };
 
   useEffect(() => {
     // Axios 백엔드
-    const apiUrl = "http://localhost:8000/api/entry/";
+    const apiUrl = 'http://localhost:8000/api/entry/';
 
     // user 응모정보 이름/이메일
     axios
       .post(apiUrl, user)
       .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        alert("등록완료");
-        history.push("/entry/List");
-      })
-      .catch((response) => {
-        console.error(response);
-      });
-
-    //Counter의 점수를 DB에서 가지고와서 보여주자
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        alert("score axios error 덜덜쓰...");
-        setResultScore(response.data);
+        console.log('등록완료데이터:', response.data);
+        alert('등록완료');
+        history.push('/entry/List');
       })
       .catch((response) => {
         console.error(response);
@@ -105,7 +131,7 @@ function Form() {
       {/* 이건 어설프게 props 써먹으려다가 망함 */}
       {/* <Counter score={score} value={user.score} /> */}
       Score :
-      {resultScore.map((item, i) => {
+      {score.map((item, i) => {
         return (
           <React.Fragment key={item.id}>
             <div>{item.score}</div>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import TopHeader from "../../components/TopHeader";
+import TopHeader from '../../components/TopHeader';
 // import Shere from "../../components/Share";
-import axios from "axios";
+import axios from 'axios';
 
 const List = () => {
   // let history = useHistory();
@@ -13,12 +13,12 @@ const List = () => {
   // const entryList = users.map((users, index) => <li key={index}> {users} </li>;
 
   useEffect(() => {
-    const apiUrl = "http://localhost:8000/api/entry/";
+    const apiUrl = 'http://localhost:8000/api/entry/';
 
     axios
       .get(apiUrl)
       .then((response) => {
-        console.log("조회완료 데이터: ", response.data);
+        console.log('조회완료 데이터: ', response.data);
         setEntryList(response.data);
       })
       .catch((response) => {
@@ -33,6 +33,7 @@ const List = () => {
 
       <h1>응모확인 페이지</h1>
 
+      {/* 사용자이름 최종스코어 응모날짜 */}
       {entryList.map((item, i) => {
         return (
           <React.Fragment key={item.id}>
