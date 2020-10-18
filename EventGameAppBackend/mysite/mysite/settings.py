@@ -132,6 +132,9 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+
+
+
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         "api_key": {

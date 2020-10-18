@@ -13,10 +13,10 @@ const List = () => {
   // const entryList = users.map((users, index) => <li key={index}> {users} </li>;
 
   useEffect(() => {
-    const apiUrl = "http://localhost:8000/api/entry/";
+    const apiUrlEntry = "http://localhost:8000/api/entry/";
 
     axios
-      .get(apiUrl)
+      .get(apiUrlEntry)
       .then((response) => {
         console.log("조회완료 데이터: ", response.data);
         setEntryList(response.data);

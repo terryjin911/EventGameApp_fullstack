@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from .models import Entry
+from .models import Entry, Score
 from .serializers import EntrySerializer
 
 from rest_framework.authentication import TokenAuthentication
@@ -26,3 +26,10 @@ class EntryDetail(generics.RetrieveUpdateAPIView):
 
 
 
+class EntryScore(generics.ListCreateAPIView):
+    model = Entry
+
+    serializer_class = EntrySerializer
+    
+
+    

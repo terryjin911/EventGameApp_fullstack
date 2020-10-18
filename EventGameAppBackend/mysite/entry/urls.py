@@ -1,5 +1,8 @@
+
 from django.urls import path
 from entry import views
+
+app_name = 'gochill'
 
 urlpatterns = [
     # /api/entry/ 전체 데이터를 가져오고, 얘가 등록처리를 함
@@ -7,4 +10,5 @@ urlpatterns = [
 
     # # /api/entry/5
     path('<int:pk>/', views.EntryDetail.as_view),
+    path('<int>/', views.EntryScore.as_view),
 ]

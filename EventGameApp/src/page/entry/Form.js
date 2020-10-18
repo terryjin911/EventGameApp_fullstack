@@ -72,11 +72,11 @@ function Form() {
 
   useEffect(() => {
     // Axios 백엔드
-    const apiUrl = "http://localhost:8000/api/entry/";
+    const apiUrlEntry = "http://localhost:8000/api/entry/";
 
     // user 응모정보 이름/이메일
     axios
-      .post(apiUrl, user)
+      .post(apiUrlEntry, user)
       .then((response) => {
         console.log("등록완료데이터:", response.data);
         alert("등록완료");
@@ -86,9 +86,10 @@ function Form() {
         console.error(response);
       });
 
+    const apiUrlScore = "http://localhost:8000/api/score/";
     //Counter의 점수를 DB에서 가지고와서 보여주자
     axios
-      .get(apiUrl)
+      .get(apiUrlScore)
       .then((response) => {
         console.log("등록완료데이터:", response.data);
         alert("score axios error 덜덜쓰...");

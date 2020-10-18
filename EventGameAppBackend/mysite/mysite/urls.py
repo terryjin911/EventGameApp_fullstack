@@ -18,18 +18,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-# from entry.views import EntryList
+from entry.views import EntryList,EntryScore
 
 # drf ( django rest framework )
 from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from rest_framework.authtoken import views
+
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="허걱스 swagger jagger 명세서까지는 열렸다^_^ㅋ",
+        title="swagger 명세서",
         default_version='version 1',
         description="이벤트 응모리스트 어플리케이션 관리 OPEN API입니다.",
         terms_of_service="https://www.github.com/terryjin911",
@@ -40,15 +40,15 @@ schema_view = get_schema_view(
     permission_classes = (
         permissions.IsAuthenticated,
     )
-    # permission_classes=(permissions.AllowAny), #이쉐끼때문에 swagger 안들어가졌어ㅠ
+    # permission_classes=(permissions.AllowAny,), #이 친구 때문에 swagger가 안 들어가지더라고?
 )
 
 # http://localhost:8000/swagger/
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/entry/', include('entry.urls')),
-    
-    # path('api/get_token/', views.obtain_auth_token),
+    path('score/', include('entry.urls'), name='score'),    
+
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
             schema_view.without_ui(cache_timeout=0), name='schema-json'),
