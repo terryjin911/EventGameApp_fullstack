@@ -47,7 +47,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/entry/', include('entry.urls')),
-    path('score/', include('entry.urls'), name='score'),    
+    path('api/score/', include('entry.urls'), name='score'),    
 
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',

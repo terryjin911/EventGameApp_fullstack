@@ -18,6 +18,7 @@ mysite/__pycache__
 # testing
 /coverage
 debug.log
+
 # production
 /build
 

@@ -72,10 +72,10 @@ function Button() {
         };
 
         // Score를 DB에 쏴버리기
-        const apiUrlScore = "http://localhost:8000/api/score/";
+        const apiUrl = "http://localhost:8000/api/entry/";
 
         axios
-          .post(apiUrlScore, data)
+          .post(apiUrl, data)
           .then((response) => {
             console.log("점수데이터전송:", response.data);
             window.location = "/entry/input/";
