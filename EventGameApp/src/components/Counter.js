@@ -35,7 +35,6 @@ function Button() {
   // ];
 
   useEffect(() => {
-
     setTimeout(() => {
       // setInterval(() => setCompleted(Math.floor(Math.random * 100) + 1), 4800);
       // let timerId = setInterval(() => alert('tick'), 2000); //(111-2) 얘가 에러나네?
@@ -58,12 +57,15 @@ function Button() {
       //   };
       // })
 
-
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
       console.log("현재 최종 스코어는???", scoreRef.current);
 
       //왜냐하면 여기서 name,email 값을 ""로 넣으면 전송이 안 되더라^_^,,,,,,,,,아
-      if (window.confirm("응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다.") == true) {
+      if (
+        window.confirm(
+          "응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다."
+        ) == true
+      ) {
         var data = {
           name: "점수데이터 name",
           email: "점수데이터 email",
@@ -72,10 +74,10 @@ function Button() {
         };
 
         // Score를 DB에 쏴버리기
-        const apiUrl = "http://localhost:8000/api/entry/";
+        const apiUrlEntry = "http://localhost:8000/api/entry/";
 
         axios
-          .post(apiUrl, data)
+          .post(apiUrlEntry, data)
           .then((response) => {
             console.log("점수데이터전송:", response.data);
             window.location = "/entry/input/";
@@ -86,8 +88,6 @@ function Button() {
       } else {
         return false;
       }
-
-
     }, 5000);
 
     return () => {
@@ -104,12 +104,8 @@ function Button() {
     setScore({ ...score, [e.target.value]: e.target.value });
   };
 
-
-
-
   return (
     <div>
-
       {/* progrss bar */}
       {/* <div>
         <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
@@ -120,7 +116,6 @@ function Button() {
           <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
          ))}
        </div> */}
-      
 
       <h1>Score: {score}</h1>
       <br></br>

@@ -8,28 +8,31 @@ from django.conf import settings
 # fullstack > booking 보면서 필요한 것만 쏙쏙 빼서 넣는 중 이러다가 한번씩 터지는 맛 아니겠나요^_^...
 
 
+# class Score(models.Model):
+#     score = models.IntegerField()
+
+# def __int__(self):
+#     return self.score
+
+
 class Entry(models.Model):
 
     # 예약회원 고유번호 : 회원테이블의 id값 (FK)
     # 사용자의 고유번호 pk가 123456... 사용자 고유번호로 찍히는거임
-    no = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='entrys'
-    )
+    regiId = models.IntegerField(primary_key=True)
+    # no = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='entrys'
+    # )
 
     # 사용자 응모정보 : 이름과 이메일
     name = models.TextField(max_length=50)
     email = models.TextField(max_length=80)
     datetime = models.DateTimeField(auto_now_add=True)
+    score = models.IntegerField()
 
     def __str__(self):
-        return self.name+""+self.email+self.score
+        return self.name+""+self.email
 
     # 우리 랜덤짤짤이 돌릴거라 목록데이터 내림차순 정렬은 필요없지 않나..? 걍 해놓기? optional이지만 내맘이니가^_^,,그것이,,프로그래밍이니가,,,
     class Meta:
         ordering = ['-datetime']
-
-class Score(models.Model):
-    score = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.score
