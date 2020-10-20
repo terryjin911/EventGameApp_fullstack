@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
+import { setEntry } from "../redux/entry";
 import ProgressBar from "../components/progress-bar.component";
 
 function Button() {
+  const dispatch = useDispatch();
   const [score, setScore] = useState(0);
 
   const [value, setValue] = useState("");
@@ -36,27 +39,6 @@ function Button() {
 
   useEffect(() => {
     setTimeout(() => {
-      // setInterval(() => setCompleted(Math.floor(Math.random * 100) + 1), 4800);
-      // let timerId = setInterval(() => alert('tick'), 2000); //(111-2) 얘가 에러나네?
-      // console.log("setInterval 작동하냐? :", timerId);
-
-      // const time = 5;
-      // const seconds = "";
-
-      // const x = setInterval(function() {
-      //   // seconds = time%5;                               //(111-1) 얘때문에
-
-      //   document.getElementById("demo").innerHTML = seconds +"초";
-
-      //   time--;
-
-      //   //타임아웃시
-      //   if (time < 0) {
-      //     clearInterval(x);
-      //     document.getElementById("demo").innerHTML = "시간 끗ㅋ"
-      //   };
-      // })
-
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
       console.log("현재 최종 스코어는???", scoreRef.current);
 
@@ -97,6 +79,7 @@ function Button() {
 
   const onIncrease = (e) => {
     setScore((prevScore) => prevScore + 14500);
+    dispatch(setEntry(score));
     console.log(`${score}점 기록`);
   };
 
@@ -106,16 +89,18 @@ function Button() {
 
   return (
     <div>
-      {/* progrss bar */}
-      {/* <div>
-        <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
-      </div> */}
+      <div>
+        {/* progrss bar */}
+        {/* <div>
+          <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
+        </div> */}
 
-      {/* <div>
-         {testData.map((item, idx) => (
-          <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
-         ))}
-       </div> */}
+        {/* <div>
+          {testData.map((item, idx) => (
+            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
+          ))}
+        </div> */}
+      </div>
 
       <h1>Score: {score}</h1>
       <br></br>

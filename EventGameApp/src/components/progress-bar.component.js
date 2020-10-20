@@ -1,37 +1,37 @@
-import React from "react";
+// import React from "react";
 
-const ProgressBar = (props) => {
-  const { bgcolor, completed } = props;
+// const ProgressBar = (props) => {
+//   const { bgcolor, completed } = props;
 
-  const containerStyles = {
-    height: 20,
-    backgroundColor: "#e0e0de",
-    borderRadius: 50,
-    margin: 10,
-  }
-
-//   const fillerStyles = {
-//     height: '100%',
-//     width: `${completed}%`,
-//     backgroundColor: bgcolor,
-//     transition: 'width 1s ease-in-out',
-//     borderRadius: 'inherit',
-//     textAlign: 'right',
+//   const containerStyles = {
+//     height: 20,
+//     backgroundColor: "#e0e0de",
+//     borderRadius: 50,
+//     margin: 10,
 //   }
 
-  const labelStyles = {
-    padding: 5,
-    color: 'white',
-    fontWeight: 'bold',
-  }
+// //   const fillerStyles = {
+// //     height: '100%',
+// //     width: `${completed}%`,
+// //     backgroundColor: bgcolor,
+// //     transition: 'width 1s ease-in-out',
+// //     borderRadius: 'inherit',
+// //     textAlign: 'right',
+// //   }
 
-  return (
-    <div style={containerStyles}>
-      <div>
-        <span style={labelStyles}>{`${completed}%`}</span>
-      </div>
-    </div>
-  );
-};
+//   const labelStyles = {
+//     padding: 5,
+//     color: 'white',
+//     fontWeight: 'bold',
+//   }
 
-export default ProgressBar;
+//   return (
+//     <div style={containerStyles}>
+//       <div>
+//         <span style={labelStyles}>{`${completed}%`}</span>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProgressBar;

@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../../redux/entry";
 
-import Counter from "../../components/Counter";
 import axios from "axios";
 
 //Info.js를 Form으로 바꿉니다
@@ -10,6 +11,7 @@ import axios from "axios";
 // https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
 //기프티콘을 받을 수신자 이름과 연락처(번호는 좀 그래서 email로 변경)
 function Form() {
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const onEntryList = () => {
@@ -24,8 +26,8 @@ function Form() {
   const [user, setUser] = useState({
     no: 1,
     score: 0,
-    name: "아설마아니지..?",
-    email: "form인데 값 비워놨다고 여지껏 안 된거 아니지..? 이거 설마전송되니..?",
+    name: "",
+    email: "",
     entry_id: 1,
   });
 
@@ -38,7 +40,6 @@ function Form() {
   const handleChangeName = useCallback(({ target: { value } }) => {
     setName(value);
   }, []);
-
   const handleChangeEmail = useCallback(({ target: { value } }) => {
     setEmail(value);
   }, []);
@@ -51,13 +52,13 @@ function Form() {
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
   const onUserChange = (e) => {
-    console.log("이건뭐지");
+    console.log("");
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   //데이터 백엔드 저장처리함수
   const onEntryDataSave = () => {
-    console.log("이름이메일입력");
+    console.log("이름+이메일 입력완료");
     // 유효성검사 만약 form이 비어있으면
     if (user.name == "") {
       alert("이름을 입력해주세요.");
@@ -68,8 +69,10 @@ function Form() {
       alert("이메일을 입력해주세요.");
       return false;
     }
+    dispatch(setUserInfo(user));
   };
 
+  //나중에 날리셈^_^ㅋ
   useEffect(() => {
     // Axios 백엔드
     const apiUrlEntry = "http://localhost:8000/api/entry/";
@@ -87,6 +90,7 @@ function Form() {
       });
 
     const apiUrlScore = "http://localhost:8000/api/score/";
+
     //Counter의 점수를 DB에서 가지고와서 보여주자
     axios
       .get(apiUrlScore)
@@ -102,16 +106,14 @@ function Form() {
 
   return (
     <div>
-      {/* 이건 어설프게 props 써먹으려다가 망함 */}
-      {/* <Counter score={score} value={user.score} /> */}
       Score :
-      {resultScore.map((item, i) => {
-        return (        
+      {/* {resultScore.map((item, i) => {
+        return (
           <React.Fragment key={item.id}>
-            <div>{item.score}</div>                                                         //이거 하나씩 뽑아서 올리는거 있을거야
+            <div>{item.score}</div>
           </React.Fragment>
         );
-      })}
+      })} */}
       <table>
         <tbody>
           {/* 응모폼 작성하는 곳 */}

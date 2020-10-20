@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import TopHeader from "../../components/TopHeader";
@@ -6,6 +7,8 @@ import TopHeader from "../../components/TopHeader";
 import axios from "axios";
 
 const List = () => {
+  //entry.js에 있는 state랑 다름ㅁ
+  const globalEntry = useSelector((state) => state.entry);
   // let history = useHistory();
 
   //해당 컴포넌트에서 사용할 응모유저 리스트 useState
@@ -14,7 +17,7 @@ const List = () => {
 
   useEffect(() => {
     const apiUrlEntry = "http://localhost:8000/api/entry/";
-
+    console.log("리덕스테스트", globalEntry);
     axios
       .get(apiUrlEntry)
       .then((response) => {
@@ -37,7 +40,7 @@ const List = () => {
         return (
           <React.Fragment key={item.id}>
             <div>
-                {item.name} | {item.score} | {item.datetime}
+              {item.name} | {item.score} | {item.datetime}
             </div>
           </React.Fragment>
         );
