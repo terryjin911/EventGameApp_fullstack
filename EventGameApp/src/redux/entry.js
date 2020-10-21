@@ -25,18 +25,22 @@ const initialState = {
   email: "",
 };
 
+// 리듀서 함수 정의
 const entry = (entryState = initialState, action) => {
   switch (action.type) {
     case GET_ENTRY:
+      console.log("리덕스 GET_ENTRY", action);
       return entryState;
 
     case SET_ENTRY:
+      console.log("리덕스 SET_ENTRY", action);
       return {
         ...entryState,
         score: action.score,
       };
 
     case SET_USER:
+      console.log("리덕스 SET_USER", action);
       return {
         ...entryState,
         name: action.name,

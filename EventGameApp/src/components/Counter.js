@@ -36,12 +36,14 @@ function Button() {
   // const testData = [
   //   { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
   // ];
-
+  //와 setTimeout 진짜 어렵다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
   useEffect(() => {
     setTimeout(() => {
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
-      console.log("현재 최종 스코어는???", scoreRef.current);
 
+      setScore(scoreRef.current + 14500);
+      dispatch(setEntry(scoreRef.current));
+      console.log("현재 최종 스코어는???", scoreRef.current);
       //왜냐하면 여기서 name,email 값을 ""로 넣으면 전송이 안 되더라^_^,,,,,,,,,아
       if (
         window.confirm(
@@ -78,8 +80,8 @@ function Button() {
   }, []);
 
   const onIncrease = (e) => {
-    setScore((prevScore) => prevScore + 14500);
-    dispatch(setEntry(score));
+    setScore(scoreRef.current + 14500);
+    dispatch(setEntry(scoreRef.current));
     console.log(`${score}점 기록`);
   };
 
