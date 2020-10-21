@@ -11,7 +11,8 @@ import axios from "axios";
 // https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
 //기프티콘을 받을 수신자 이름과 연락처(번호는 좀 그래서 email로 변경)
 function Form() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  // const entry = useSelector((state) => action.score);
   let history = useHistory();
 
   const onEntryList = () => {
@@ -69,7 +70,7 @@ function Form() {
       alert("이메일을 입력해주세요.");
       return false;
     }
-    dispatch(setUserInfo(user));
+    // dispatch(setUserInfo(user));
   };
 
   //나중에 날리셈^_^ㅋ
@@ -114,7 +115,7 @@ function Form() {
           </React.Fragment>
         );
       })} */}
-      <table>
+      <table style={{ margin: "audo" }}>
         <tbody>
           {/* 응모폼 작성하는 곳 */}
           <tr>
