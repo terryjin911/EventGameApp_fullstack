@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect,useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../../redux/entry";
@@ -19,41 +19,24 @@ function Form() {
     history.push("/entry/List");
   };
 
+  let scoreRef = useRef("");
+  useEffect(() => {
+    scoreRef.current = score;
+  });
+
   // DB에 저장한 score데이터
-  const [entryList, setEntryList] = useState([]);
-  const [resultScore, setResultScore] = useState([]);
+  const [score, setScore] = useState("");
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
-    no: 1,
-    score: 0,
-    name: "",
-    email: "",
-    entry_id: 1,
+    regiId: 1,
+    score: scoreRef.current,
+    name: "설마 Form.js도 값 비워두면 안 들어가나요?",
+    email: "사람새끼세요?@gmail.com",
   });
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [no, setNo] = useState("");
-  const [datetime, setDatetime] = useState("");
-  const [score, setScore] = useState("");
-
-  const handleChangeName = useCallback(({ target: { value } }) => {
-    setName(value);
-  }, []);
-  const handleChangeEmail = useCallback(({ target: { value } }) => {
-    setEmail(value);
-  }, []);
-  const handleChangeNo = useCallback(({ target: { value } }) => {
-    setNo(value);
-  }, []);
-  const handleChangeDatetime = useCallback(({ target: { value } }) => {
-    setDatetime(value);
-  }, []);
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
   const onUserChange = (e) => {
-    console.log("");
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
@@ -75,30 +58,23 @@ function Form() {
 
   //나중에 날리셈^_^ㅋ
   useEffect(() => {
+    var data = {
+      regiId: 7,
+      name: "",
+      email: "",
+      score: scoreRef.current,
+    };
+    
     // Axios 백엔드
     const apiUrlEntry = "http://localhost:8000/api/entry/";
 
     // user 응모정보 이름/이메일
     axios
-      .post(apiUrlEntry, user)
+      .post(apiUrlEntry, data)
       .then((response) => {
         console.log("등록완료데이터:", response.data);
         alert("등록완료");
         history.push("/entry/List");
-      })
-      .catch((response) => {
-        console.error(response);
-      });
-
-    const apiUrlScore = "http://localhost:8000/api/score/";
-
-    //Counter의 점수를 DB에서 가지고와서 보여주자
-    axios
-      .get(apiUrlScore)
-      .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        alert("score axios error 덜덜쓰...");
-        setResultScore(response.data);
       })
       .catch((response) => {
         console.error(response);

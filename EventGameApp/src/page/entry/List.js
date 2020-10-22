@@ -40,7 +40,7 @@ const List = () => {
         return (
           <React.Fragment key={item.id}>
             <div>
-              {item.name} | {item.score} | {item.datetime}
+            {item.score}점 | {item.name} | {item.datetime}
             </div>
           </React.Fragment>
         );

@@ -24,11 +24,12 @@ class Entry(models.Model):
     #     settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='entrys'
     # )
 
+    score = models.IntegerField()
     # 사용자 응모정보 : 이름과 이메일
     name = models.TextField(max_length=50)
     email = models.TextField(max_length=80)
     datetime = models.DateTimeField(auto_now_add=True)
-    score = models.IntegerField()
+    
 
     def __str__(self):
         return self.name+""+self.email
