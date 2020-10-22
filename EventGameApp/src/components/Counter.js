@@ -10,8 +10,6 @@ function Button() {
   const dispatch = useDispatch();
   const [score, setScore] = useState(0);
 
-  const [value, setValue] = useState("");
-
   const [sec, setSec] = useState();
 
   let scoreRef = useRef("");
@@ -51,10 +49,10 @@ function Button() {
         ) == true
       ) {
         var data = {
-          name: "점수데이터 name",
-          email: "점수데이터 email",
+          regiId: 7,
+          name: "regiID 7로 바꿔서 넣어보고있음",
+          email: "email비워놓고싶어요..@naver.com",
           score: scoreRef.current,
-          no: 1,
         };
 
         // Score를 DB에 쏴버리기
@@ -72,7 +70,7 @@ function Button() {
       } else {
         return false;
       }
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(sec);
