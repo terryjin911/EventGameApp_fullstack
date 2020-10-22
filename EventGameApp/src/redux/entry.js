@@ -21,8 +21,8 @@ export const setUserInfo = (user) => ({
 // 액션의 type에 따라 변화가 일어남
 const initialState = {
   score: 0,
-  name: "",
-  email: "",
+  name: "응모자 성함",
+  email: "응모자 연락처",
 };
 
 // 리듀서 함수 정의

@@ -17,6 +17,10 @@ function Button() {
     scoreRef.current = score;
   });
 
+  const [counterScore, setCounterScore] = useState({
+    score: 0,
+  });
+
   // let secRef = useRef("");
   // useEffect(() => {
   //   secRef.current = sec;
@@ -40,6 +44,7 @@ function Button() {
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
 
       setScore(scoreRef.current + 14500);
+      // setTimeout이 끝났을 때 최종스코어를 리덕스에 담음
       dispatch(setEntry(scoreRef.current));
       console.log("현재 최종 스코어는???", scoreRef.current);
       //왜냐하면 여기서 name,email 값을 ""로 넣으면 전송이 안 되더라^_^,,,,,,,,,아
@@ -48,25 +53,25 @@ function Button() {
           "응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다."
         ) == true
       ) {
-        var data = {
-          regiId: 7,
-          name: "regiID 7로 바꿔서 넣어보고있음",
-          email: "email비워놓고싶어요..@naver.com",
-          score: scoreRef.current,
-        };
-
+        // 얘 말고 이제 저장하는거를 찾아야...
+        dispatch(setEntry(scoreRef.current));
+        // var data = {
+        //   regiId: 0,
+        //   name: "regiID값도 문제고 name/mail값도 문제인데요",
+        //   email: "누가...email 좀 비우게해줘..",
+        //   score: scoreRef.current,
+        // };
         // Score를 DB에 쏴버리기
-        const apiUrlEntry = "http://localhost:8000/api/entry/";
-
-        axios
-          .post(apiUrlEntry, data)
-          .then((response) => {
-            console.log("점수데이터전송:", response.data);
-            window.location = "/entry/input/";
-          })
-          .catch((response) => {
-            console.error(response);
-          });
+        // const apiUrlEntry = "http://localhost:8000/api/entry/";
+        // axios
+        //   .post(apiUrlEntry, data)
+        //   .then((response) => {
+        //     console.log("점수데이터전송:", response.data);
+        //     window.location = "/entry/input/";
+        //   })
+        //   .catch((response) => {
+        //     console.error(response);
+        //   });
       } else {
         return false;
       }
@@ -79,12 +84,7 @@ function Button() {
 
   const onIncrease = (e) => {
     setScore(scoreRef.current + 14500);
-    dispatch(setEntry(scoreRef.current));
     console.log(`${score}점 기록`);
-  };
-
-  const onScoreChange = (e) => {
-    setScore({ ...score, [e.target.value]: e.target.value });
   };
 
   return (
@@ -104,7 +104,9 @@ function Button() {
 
       <h1>Score: {score}</h1>
       <br></br>
-      <button onClick={onIncrease}>+1</button>
+      <button value={counterScore.score} onClick={onIncrease}>
+        +1
+      </button>
       <button onClick={onIncrease}>+1</button>
     </div>
   );

@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useEffect,useRef } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo } from "../../redux/entry";
+import { setEntry } from "../../redux/entry";
 
 import axios from "axios";
 
@@ -19,6 +20,8 @@ function Form() {
     history.push("/entry/List");
   };
 
+  const dispatch = useDispatch();
+
   let scoreRef = useRef("");
   useEffect(() => {
     scoreRef.current = score;
@@ -31,8 +34,8 @@ function Form() {
   const [user, setUser] = useState({
     regiId: 1,
     score: scoreRef.current,
-    name: "설마 Form.js도 값 비워두면 안 들어가나요?",
-    email: "사람새끼세요?@gmail.com",
+    name: "Form.js name 값 비워두면 안 들어가나요?",
+    email: "아니진짜말이되나@gmail.com",
   });
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
@@ -53,37 +56,44 @@ function Form() {
       alert("이메일을 입력해주세요.");
       return false;
     }
-    // dispatch(setUserInfo(user));
+    dispatch(setUserInfo(user));
   };
 
-  //나중에 날리셈^_^ㅋ
-  useEffect(() => {
-    var data = {
-      regiId: 7,
-      name: "",
-      email: "",
-      score: scoreRef.current,
-    };
-    
-    // Axios 백엔드
-    const apiUrlEntry = "http://localhost:8000/api/entry/";
+  dispatch(setEntry(scoreRef.current));
 
-    // user 응모정보 이름/이메일
-    axios
-      .post(apiUrlEntry, data)
-      .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        alert("등록완료");
-        history.push("/entry/List");
-      })
-      .catch((response) => {
-        console.error(response);
-      });
-  });
+  //나중에 날리셈^_^ㅋ
+  // useEffect(() => {
+  //   var data = {
+  //     regiId: 7,
+  //     name: "",
+  //     email: "",
+  //     score: scoreRef.current,
+  //   };
+
+  //얘가 없으면 그나마 form 위에 "score: 0" 뜬게 사라져버림
+  // dispatch(setEntry(scoreRef.current));
+
+  // Axios 백엔드
+  // const apiUrlEntry = "http://localhost:8000/api/entry/";
+
+  // // user 응모정보 이름/이메일
+  // axios
+  //   .post(apiUrlEntry, data)
+  //   .then((response) => {
+  //     console.log("등록완료데이터:", response.data);
+  //     alert("등록완료");
+  //     history.push("/entry/List");
+  //   })
+  //   .catch((response) => {
+  //     console.error(response);
+  //   });
+  // });
+
+  const globalScore = useSelector((entryState) => entryState.entry.score);
 
   return (
     <div>
-      Score :
+      Score : {globalScore.length}
       {/* {resultScore.map((item, i) => {
         return (
           <React.Fragment key={item.id}>
@@ -91,7 +101,7 @@ function Form() {
           </React.Fragment>
         );
       })} */}
-      <table style={{ margin: "audo" }}>
+      <table style={{ margin: "auto" }}>
         <tbody>
           {/* 응모폼 작성하는 곳 */}
           <tr>
