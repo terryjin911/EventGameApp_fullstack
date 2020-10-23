@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import axios from "axios";
-import { useDispatch } from "react-redux";
+// import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
 import { setEntry } from "../redux/entry";
-import ProgressBar from "../components/progress-bar.component";
+// import ProgressBar from "../components/progress-bar.component";
 
 function Button() {
   const dispatch = useDispatch();
+  
   const [score, setScore] = useState(0);
 
   const [sec, setSec] = useState();
@@ -17,9 +18,6 @@ function Button() {
     scoreRef.current = score;
   });
 
-  const [counterScore, setCounterScore] = useState({
-    score: 0,
-  });
 
   // let secRef = useRef("");
   // useEffect(() => {
@@ -43,7 +41,7 @@ function Button() {
     setTimeout(() => {
       // Timeout 5초가 끝나면 최종 스코어를 로그에 저장
 
-      setScore(scoreRef.current + 14500);
+      // setScore(scoreRef.current + 14500);
       // setTimeout이 끝났을 때 최종스코어를 리덕스에 담음
       dispatch(setEntry(scoreRef.current));
       console.log("현재 최종 스코어는???", scoreRef.current);
@@ -53,12 +51,13 @@ function Button() {
           "응모 페이지로 이동하시겠습니까? [취소]를 누르면 기록 저장되지 않습니다."
         ) == true
       ) {
-        // 얘 말고 이제 저장하는거를 찾아야...
         dispatch(setEntry(scoreRef.current));
+        // window.location = "/entry/input/";
+
         // var data = {
         //   regiId: 0,
-        //   name: "regiID값도 문제고 name/mail값도 문제인데요",
-        //   email: "누가...email 좀 비우게해줘..",
+        //   name: "여기를 비우면 axios가 안 받아주네..",
+        //   email: "아니.... 여기에 값이 들어가있으면 form이 무슨 소용이람...",
         //   score: scoreRef.current,
         // };
         // Score를 DB에 쏴버리기
@@ -84,8 +83,11 @@ function Button() {
 
   const onIncrease = (e) => {
     setScore(scoreRef.current + 14500);
+    dispatch(setEntry(score));
     console.log(`${score}점 기록`);
   };
+
+
 
   return (
     <div>
@@ -104,7 +106,9 @@ function Button() {
 
       <h1>Score: {score}</h1>
       <br></br>
-      <button value={counterScore.score} onClick={onIncrease}>
+
+      {/* 얘 눌렀는데 안 넘어가요.... */}
+      <button onClick={onIncrease}>
         +1
       </button>
       <button onClick={onIncrease}>+1</button>

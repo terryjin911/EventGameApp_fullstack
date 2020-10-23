@@ -1,6 +1,10 @@
+자바스크립트 자료형
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Data_structures
+
+
 일단 기초데이터로 1트 ㄱㄱ
 state.product.products   products가 initialState 안에 들어있는 배열
-entryState.score.score
+state.score.score
 
 import { insertProduct } from "../../modules/product";
 insertProduct
@@ -10,9 +14,10 @@ setEntry
 setUserInfo
 
 
-아시발 다 아니었고
-const globalScore = useSelector((entryState) => entryState.entry.users);
+아 다 아니었고
+const globalScore = useSelector((state) => state.entry.users);
 이거였음ㅋㅋㅋ                                                           ㄴ얘가 product 그새끼였음 아 진짜 너무개운하다 아!!!!!!!!!!!!!!
+  const globalScore = useSelector((state) => state.entry.score);
 
 
   //전역데이터 공간에서 product

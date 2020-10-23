@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo } from "../../redux/entry";
 import { setEntry } from "../../redux/entry";
 
-import axios from "axios";
+// import axios from "axios";
 
 //Info.js를 Form으로 바꿉니다
 //DAY4  >   hooksfunctionapp    >   joinform.js "nickname"을 "email"로 바꿨음
@@ -13,10 +13,10 @@ import axios from "axios";
 //기프티콘을 받을 수신자 이름과 연락처(번호는 좀 그래서 email로 변경)
 function Form() {
   // const dispatch = useDispatch();
-  // const entry = useSelector((state) => action.score);
+  
   let history = useHistory();
 
-  const onEntryList = () => {
+  const moveList = () => {
     history.push("/entry/List");
   };
 
@@ -34,8 +34,8 @@ function Form() {
   const [user, setUser] = useState({
     regiId: 1,
     score: scoreRef.current,
-    name: "Form.js name 값 비워두면 안 들어가나요?",
-    email: "아니진짜말이되나@gmail.com",
+    name: "",
+    email: "",
   });
 
   //유저정보 데이터 바인딩 처리함수       //이거 넣으니까 데이터입력해주세요 false alert안 뜬다!
@@ -89,11 +89,26 @@ function Form() {
   //   });
   // });
 
-  const globalScore = useSelector((entryState) => entryState.entry.score);
-
+  //전역데이터 공간에서 entry
+  //기초 데이터 불러오는 기능
+  // const globalScore = useSelector(
+  //   (state) => state.entry.score,
+  //   (newitem, previousItem) => {
+  //     console.log(
+  //       "신규 상품이 추가 또는 변경되었습니다.",
+  //       newitem,
+  //       previousItem
+  //     );
+  //     //추가작업 진행
+  //     //setUseState('샘플');
+  //   }
+  // );
+  const globalScore = useSelector((state) => state.entry.userScore);
   return (
     <div>
-      Score : {globalScore.length}
+
+      {/* length를 넣으면 0이나 1이 찍히기는 합니다.. */}
+      Score : {globalScore}
       {/* {resultScore.map((item, i) => {
         return (
           <React.Fragment key={item.id}>
@@ -134,7 +149,7 @@ function Form() {
             <td>
               {/* 응모 폼 전송버튼 */}
               <button onClick={() => onEntryDataSave()}> 응모 </button>
-              <button onClick={() => onEntryList()}> 응모확인 </button>
+              <button onClick={() => moveList()}> 응모확인 </button>
             </td>
           </tr>
         </tbody>

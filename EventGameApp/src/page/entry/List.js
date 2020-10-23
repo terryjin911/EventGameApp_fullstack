@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import TopHeader from "../../components/TopHeader";
 // import Shere from "../../components/Share";
@@ -8,7 +8,7 @@ import axios from "axios";
 
 const List = () => {
   //entry.js에 있는 state랑 다름ㅁ
-  const globalEntry = useSelector((state) => state.entry);
+  const globalEntry = useSelector((state) => state.entry.users);
   // let history = useHistory();
 
   //해당 컴포넌트에서 사용할 응모유저 리스트 useState
@@ -35,6 +35,12 @@ const List = () => {
       <TopHeader />
 
       <h1>응모확인 페이지</h1>
+      <div>
+        {/* {globalEntry} */}
+      </div>
+
+
+
 
       {entryList.map((item, i) => {
         return (
