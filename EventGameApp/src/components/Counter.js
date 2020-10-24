@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setEntry } from "../redux/entry";
-// import ProgressBar from "../components/progress-bar.component";
+import ProgressBar from "../components/progress-bar.component";
 
 function Button() {
   const dispatch = useDispatch();
@@ -18,24 +18,27 @@ function Button() {
     scoreRef.current = score;
   });
 
+  
+  // ProgressBar 시작
+  let secRef = useRef("");
+  useEffect(() => {
+    secRef.current = sec;
+  });
+  const secc = useRef(1);
+  const setSecc = (n) => {
+    secc.current = n;
+  }
+  const printSecc = () => {
+    console.log(secc.current);
+  }
+  const [completed, setCompleted] = useState(0);
+  const testData = [
+    { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
+  ];
+  // ProgressBar 끝
 
-  // let secRef = useRef("");
-  // useEffect(() => {
-  //   secRef.current = sec;
-  // });
 
-  // const secc = useRef(1);
-  // const setSecc = (n) => {
-  //   secc.current = n;
-  // }
-  // const printSecc = () => {
-  //   console.log(secc.current);
-  // }
-
-  // const [completed, setCompleted] = useState(0);
-  // const testData = [
-  //   { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
-  // ];
+  
   //와 setTimeout 진짜 어렵다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
   useEffect(() => {
     setTimeout(() => {
@@ -93,15 +96,15 @@ function Button() {
     <div>
       <div>
         {/* progrss bar */}
-        {/* <div>
+        <div>
           <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
-        </div> */}
+        </div>
 
-        {/* <div>
+        <div>
           {testData.map((item, idx) => (
             <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} sec={item.sec} />
           ))}
-        </div> */}
+        </div>
       </div>
 
       <h1>Score: {score}</h1>

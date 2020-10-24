@@ -6,12 +6,7 @@ import { setEntry } from "../../redux/entry";
 
 // import axios from "axios";
 
-//Info.js를 Form으로 바꿉니다
-//DAY4  >   hooksfunctionapp    >   joinform.js "nickname"을 "email"로 바꿨음
-//어 input.js를 따로 만들어야하나? => End.js
-// https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
-//기프티콘을 받을 수신자 이름과 연락처(번호는 좀 그래서 email로 변경)
-function Form() {
+const Form = ({setEntry}) => {
   // const dispatch = useDispatch();
   
   let history = useHistory();
@@ -29,6 +24,7 @@ function Form() {
 
   // DB에 저장한 score데이터
   const [score, setScore] = useState("");
+  
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
@@ -59,7 +55,9 @@ function Form() {
     dispatch(setUserInfo(user));
   };
 
-  dispatch(setEntry(scoreRef.current));
+  // setEntry는 score저장된 리덕스.. 그거 호출해보려는 시도^_^ㅎ;;;;
+  // 아 대박 얘 때문이었어 얘를 아 얘만 지웠으면 되는거였ㄴ어 아 진짜 아 너무해정말로 아!!!!
+  // dispatch(setEntry(scoreRef.current));
 
   //나중에 날리셈^_^ㅋ
   // useEffect(() => {
@@ -89,33 +87,14 @@ function Form() {
   //   });
   // });
 
-  //전역데이터 공간에서 entry
-  //기초 데이터 불러오는 기능
-  // const globalScore = useSelector(
-  //   (state) => state.entry.score,
-  //   (newitem, previousItem) => {
-  //     console.log(
-  //       "신규 상품이 추가 또는 변경되었습니다.",
-  //       newitem,
-  //       previousItem
-  //     );
-  //     //추가작업 진행
-  //     //setUseState('샘플');
-  //   }
-  // );
-  const globalScore = useSelector((state) => state.entry.userScore);
+
+  const globalScore = useSelector((entryState) => entryState.entry.score);
   return (
     <div>
 
-      {/* length를 넣으면 0이나 1이 찍히기는 합니다.. */}
+      {/* Counter.js에서 받아온 globalScore값을 꺼내왔음*/}
       Score : {globalScore}
-      {/* {resultScore.map((item, i) => {
-        return (
-          <React.Fragment key={item.id}>
-            <div>{item.score}</div>
-          </React.Fragment>
-        );
-      })} */}
+
       <table style={{ margin: "auto" }}>
         <tbody>
           {/* 응모폼 작성하는 곳 */}
