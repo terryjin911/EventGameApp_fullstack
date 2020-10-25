@@ -60,27 +60,26 @@ function Button() {
         dispatch(setEntry(scoreRef.current));
         history.push("/entry/input/");
         
-        // var data = {
-        //   regiId: 8,
-        //   name: "25인데 발표가 29일이네?",
-        //   email: "oct25@naver.com",
-        //   score: scoreRef.current,
-        // };
-        // // Score를 DB에 쏴버리기
-        // const apiUrlEntry = "http://localhost:8000/api/entry/";
-        // axios
-        //   .post(apiUrlEntry, data)
-        //   .then((response) => {
-        //     console.log("점수데이터전송:", response.data);
-        //     window.location = "/entry/input/";
-        //   })
-        //   .catch((response) => {
-        //     console.error(response);
-        //   });
+        var data = {
+          regiId: 20,
+          name: "",
+          email: "",
+          score: scoreRef.current,
+        };
+        // Score를 DB에 쏴버리기
+        const apiUrlEntry = "http://localhost:8000/api/entry/";
+        axios
+          .post(apiUrlEntry, data)
+          .then((response) => {
+            console.log("점수데이터전송:", response.data);
+          })
+          .catch((response) => {
+            console.error(response);
+          });
       } else {
-        return window.location = "/Game";;
+        return false;
       }
-    }, 5000);
+    }, 2000);
 
     return () => {
       clearTimeout(sec);
@@ -93,10 +92,24 @@ function Button() {
     console.log(`${score}점 기록`);
   };
 
-
+  // window.location = "/Game
 
   return (
     <div>
+      
+        <div className="box">
+          {/* Bat */}
+          <div className="back" onClick={onIncrease} >
+            <img src="/img/Bat1.svg" className="bat1" alt="logo" />
+            </div>
+          {/* D_pink */}
+          <div className="front">
+            <img src="/img/logo192.svg" className="App-S_logo" alt="logo" />
+
+          
+          </div>
+        </div>
+      
       <div>
         {/* progrss bar */}
         {/* <div>
@@ -113,10 +126,10 @@ function Button() {
       <h1>Score: {score}점</h1>
       <br></br>
 
-      <button onClick={onIncrease}>
+      {/* <button onClick={onIncrease}>
         도넛
       </button>
-      <button onClick={onIncrease}>좋아</button>
+      <button onClick={onIncrease}>좋아</button> */}
     </div>
   );
 }

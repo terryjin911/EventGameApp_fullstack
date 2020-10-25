@@ -4,12 +4,10 @@
 
 .App-logo {
   height: 70vmin;
-  pointer-events: none;
 }
 
 .App-S_logo {
   height: 70vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -57,4 +55,59 @@
   background-color: #2cbbb6;
   padding: 22px 0px;
   box-sizing: border-box;
+}
+
+/* 새 퍼덕거리던데 난 못하것다 */
+.bird--one { 
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+} 
+.bird--two { 
+  animation-duration: 0.9s; 
+  animation-delay: -0.75s; 
+}
+
+/* 박쥐쓰 */
+.bat1-box {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+#bat1{
+  bottom: 800px;
+  transform: translateX(-20%);
+  position:absolute; 
+  top:10px;
+  left:50%;
+  animation: ani 3s infinite 10s alternate;
+  pointer-events: auto;  
+  animation: App-logo-spin infinite 20s linear;
+}
+@keyframes ani{
+  bottom: 1px;
+  0%{transform:translate(0,0);}
+  100%{transform:translate(0,10px);}
+}  
+
+/* 이미지 두 개 겹치기 시도 */
+.container{
+  width:630px;
+  margin: 100px auto 0;
+}
+.box{
+  float: left;
+  width: 255px;
+  height: 515px;
+  margin: 0 30px;
+  position: relative;
+}
+.back{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.front{
+  position: absolute;
+  top: 0;
+  left: 0;
 }

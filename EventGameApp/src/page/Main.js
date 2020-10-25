@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 
 import TopHeader from "../components/TopHeader";
 
+import ButtonUI from '../components/ButtonUI';
+
+
 //게임설명과 startButton이 있는 화면
 const Main = () => {
   let history = useHistory();
@@ -18,25 +21,37 @@ const Main = () => {
     history.push("/entry/List");
   };
     
+
+
+
   return (
     <div>
-
-
-      <TopHeader/>
-
-      {/* D_pink */}
-      <div className="app">
-        <img src="/img/logo192.svg" className="App-logo" alt="logo" />
+      
+      <div className="container">
+        {/* Bat */}
+        {/* <div className="back">
+          <img src="/img/Bat1.svg" className="App-S_logo" alt="logo" /> */}
+        {/* D_pink */}
+        <div className="front">
+          <img src="/img/logo192.svg" className="App-logo" alt="logo" />
+        </div>
+        {/* </div> */}
       </div>
 
 
+      <ButtonUI variant="contained" color="primary" onClick={() => onStart()}>
+        dmld
+      </ButtonUI>
 
       {/* START버튼 */}
-      <button onClick={() => onStart()}>START</button>
+      
       <button onClick={() => moveList()}>랭킹</button>
+
+
+      
       <h3>
         <p>
-          start버튼을 눌러서 게임시작!<br></br>
+          start버튼을 눌러서 게임시작!<br/>
         </p>
       </h3>
 
@@ -52,8 +67,9 @@ const Main = () => {
 
       <h4>
         <p>
-          5초 안에 버튼을 마구 눌러<br></br>
-          SCORE를 최대한 올려보세요<br/>
+          흑임자도넛을 노리는<br></br>
+          박쥐 내쫓아서 점수를 얻으세요<br/>
+          시간은 5초!
 
         </p>
       </h4>

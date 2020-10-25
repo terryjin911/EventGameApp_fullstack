@@ -28,7 +28,7 @@ const Form = ({setEntry}) => {
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
-    regiId: 1,
+    regiId: 18,
     score: scoreRef.current,
     name: "",
     email: "",
@@ -66,41 +66,38 @@ const Form = ({setEntry}) => {
     }
   };
 
-  // setEntry는 score저장된 리덕스.. 그거 호출해보려는 시도^_^ㅎ;;;;
-  // 아 대박 얘 때문이었어 얘를 아 얘만 지웠으면 되는거였ㄴ어 아 진짜 아 너무해정말로 아!!!!
-  // dispatch(setEntry(scoreRef.current));
+  const globalScore = useSelector((entryState) => entryState.entry.score);
+
 
   //나중에 날리셈^_^ㅋ
+  //DB로 들어가고있는건 얘
   useEffect(() => {
-    // var data = {
-    //   regiId: 7,
-    //   name: "25어쩌구29일",
-    //   email: "엉엉@naver.com",
-    //   score: scoreRef.current,
-    // };
+    var data = {
+      regiId: 23,
+      name: "아니 여기 비워두면 자꾸 Axios가 무시하네..",
+      email: "정말너무하는구만@naver.com",
+      score: scoreRef.current,
+    };
 
-  //얘가 없으면 그나마 form 위에 "score: 0" 뜬게 사라져버림
-  // dispatch(setEntry(scoreRef.current));
 
   // Axios 백엔드
-  // const apiUrlEntry = "http://localhost:8000/api/entry/";
+  const apiUrlEntry = "http://localhost:8000/api/entry/";
 
-  // // user 응모정보 이름/이메일
-  // axios
-  //   .post(apiUrlEntry, data)
-  //   .then((response) => {
-  //     console.log("등록완료데이터:", response.data);
-  //     alert("등록완료");
-  //     history.push("/entry/List");
-  //   })
-  //   .catch((response) => {
-  //     console.error(response);
-  //   });
-  })
+  // user 응모정보 이름/이메일
+  axios
+    .post(apiUrlEntry, data)
+    .then((response) => {
+      console.log("등록완료데이터:", response.data);
+      // alert("등록완료");
+      // history.push("/entry/List");
+    })
+    .catch((response) => {
+      console.error(response);
+    });
+  });
 
 
 
-  const globalScore = useSelector((entryState) => entryState.entry.score);
   return (
     <div>
 

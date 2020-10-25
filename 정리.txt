@@ -1,3 +1,7 @@
+yarn add @material-ui/core
+npm i -D @svgr/webpack
+
+
 4개 페이지
 1) Main     
 2) Board    [Counter + score] 데이터

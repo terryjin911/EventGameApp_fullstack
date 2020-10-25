@@ -9,9 +9,9 @@ const Game = () => {
       <TopHeader />
 
       {/* D_pink */}
-      <div className="app">
+      {/* <div className="app">
         <img src="/img/logo192.svg" className="App-S_logo" alt="logo" />
-      </div>
+      </div> */}
 
       {/* 스코어버튼 */}
       <Counter />
