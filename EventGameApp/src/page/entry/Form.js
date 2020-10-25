@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo } from "../../redux/entry";
 import { setEntry } from "../../redux/entry";
 
-// import axios from "axios";
+import axios from "axios";
 
 const Form = ({setEntry}) => {
   // const dispatch = useDispatch();
@@ -53,6 +53,17 @@ const Form = ({setEntry}) => {
       return false;
     }
     dispatch(setUserInfo(user));
+    
+    // 
+    if (
+      window.confirm(
+        "응모가 완료되었습니다! [확인]을 누르면 확인페이지로 이동합니다."
+      ) == true
+    ) {
+      history.push("/entry/list/");
+    } else {
+      return false;
+    }
   };
 
   // setEntry는 score저장된 리덕스.. 그거 호출해보려는 시도^_^ㅎ;;;;
@@ -60,13 +71,13 @@ const Form = ({setEntry}) => {
   // dispatch(setEntry(scoreRef.current));
 
   //나중에 날리셈^_^ㅋ
-  // useEffect(() => {
-  //   var data = {
-  //     regiId: 7,
-  //     name: "",
-  //     email: "",
-  //     score: scoreRef.current,
-  //   };
+  useEffect(() => {
+    // var data = {
+    //   regiId: 7,
+    //   name: "25어쩌구29일",
+    //   email: "엉엉@naver.com",
+    //   score: scoreRef.current,
+    // };
 
   //얘가 없으면 그나마 form 위에 "score: 0" 뜬게 사라져버림
   // dispatch(setEntry(scoreRef.current));
@@ -85,7 +96,8 @@ const Form = ({setEntry}) => {
   //   .catch((response) => {
   //     console.error(response);
   //   });
-  // });
+  })
+
 
 
   const globalScore = useSelector((entryState) => entryState.entry.score);
@@ -93,7 +105,7 @@ const Form = ({setEntry}) => {
     <div>
 
       {/* Counter.js에서 받아온 globalScore값을 꺼내왔음*/}
-      Score : {globalScore}
+      <h2>최종 score는 <br/>{globalScore}점 입니다</h2>
 
       <table style={{ margin: "auto" }}>
         <tbody>
@@ -124,15 +136,19 @@ const Form = ({setEntry}) => {
             </td>
           </tr>
 
-          <tr>
-            <td>
-              {/* 응모 폼 전송버튼 */}
-              <button onClick={() => onEntryDataSave()}> 응모 </button>
-              <button onClick={() => moveList()}> 응모확인 </button>
-            </td>
-          </tr>
         </tbody>
       </table>
+
+
+      <h6>
+        이벤트 종료 후 당첨된 분들께 상품전달이 완료되면<br/>
+        개인정보는 모두 파기됩니다.<br/>
+      </h6>
+
+      {/* 응모 폼 전송버튼 */}
+      <button onClick={() => onEntryDataSave()}> 응모 </button>
+      <button onClick={() => moveList()}> 응모확인 </button>
+
     </div>
   );
 }

@@ -12,7 +12,6 @@ import Game from "./page/Game";
 function App() {
   return (
     <div>
-      
       <div className="App">
         <header className="App-header">
           <Route path="/" component={Main} exact={true} />
@@ -21,8 +20,6 @@ function App() {
           <Route path="/entry/List" component={List} />
           <Route path="/Form" component={Form} />          
         </header>
-
-        {/* <Button /> */}
       </div>
     </div>
   );

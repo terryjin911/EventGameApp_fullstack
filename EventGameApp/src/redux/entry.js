@@ -5,8 +5,11 @@ const SET_ENTRY = "SET_ENTRY";
 const SET_USER = "SET_USER";
 
 //액션 실행함수 정의
-export const getEntry = () => ({
+// user는 DB에 들어갈 정보, getEntry는 응모확인페이지에 뿌려질 정보.
+export const getEntry = (entry) => ({
   type: GET_ENTRY,
+  score: entry.score,
+  name: entry.name, 
 });
 export const setEntry = (score) => ({
   type: SET_ENTRY,
@@ -23,7 +26,6 @@ export const setUserInfo = (user) => ({
 // string을 변수에 담기. useState로 하던 그 행위 자체를 리덕스에서는 리듀서가 함
 // 액션의 type에 따라 변화가 일어남
 const initialState = {
-
   score: 0,
   name: "",
   email: "",
@@ -34,7 +36,11 @@ const entry = (entryState = initialState, action) => {
   switch (action.type) {
     case GET_ENTRY:
       console.log("리덕스 GET_ENTRY", action);
-      return entryState;
+      return {
+        ...entryState,
+        score: action.score,
+        name: action.name,
+      };
 
     case SET_ENTRY:
       console.log("리덕스 SET_ENTRY", entryState, action);

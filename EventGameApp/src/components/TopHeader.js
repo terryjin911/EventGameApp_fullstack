@@ -9,7 +9,7 @@ const TopHeader = () => {
             <header className="App-header"> */}
 
       {/* 페이지 이동 */}
-      <div className="App-link" style={{ textAlign: "center" }}>
+      {/* <div className="App-link" style={{ textAlign: "center" }}>
         <Link to="/">Main</Link>|<Link to="/entry/input/">Input</Link>|
         <Link to="/entry/list">응모확인</Link>|
         <a
@@ -30,7 +30,7 @@ const TopHeader = () => {
           RESTful Admin(임시)
         </a>
         |
-      </div>
+      </div> */}
     </div>
   );
 };
