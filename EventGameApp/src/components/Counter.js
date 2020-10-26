@@ -11,7 +11,6 @@ function Button() {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  
   const [score, setScore] = useState(0);
 
   const [sec, setSec] = useState();
@@ -21,7 +20,6 @@ function Button() {
     scoreRef.current = score;
   });
 
-  
   // ProgressBar 시작
   let secRef = useRef("");
   useEffect(() => {
@@ -30,18 +28,16 @@ function Button() {
   const secc = useRef(1);
   const setSecc = (n) => {
     secc.current = n;
-  }
+  };
   const printSecc = () => {
     console.log(secc.current);
-  }
+  };
   const [completed, setCompleted] = useState(0);
   const testData = [
     { bgcolor: "#6a1b9a", completed: `${completed}`, secc: `${secc}` },
   ];
   // ProgressBar 끝
 
-
-  
   //와 setTimeout 진짜 어렵다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
   useEffect(() => {
     setTimeout(() => {
@@ -59,7 +55,7 @@ function Button() {
       ) {
         dispatch(setEntry(scoreRef.current));
         history.push("/entry/input/");
-        
+
         var data = {
           regiId: 20,
           name: "",
@@ -79,7 +75,7 @@ function Button() {
       } else {
         return false;
       }
-    }, 2000);
+    }, 5000);
 
     return () => {
       clearTimeout(sec);
@@ -96,20 +92,24 @@ function Button() {
 
   return (
     <div>
-      
-        <div className="box">
-          {/* Bat */}
-          <div className="back" onClick={onIncrease} >
-            <img src="/img/Bat1.svg" className="bat1" alt="logo" />
-            </div>
-          {/* D_pink */}
-          <div className="front">
-            <img src="/img/logo192.svg" className="App-S_logo" alt="logo" />
-
-          
-          </div>
+      {/* S_Doughnut and S_bat1 */}
+      <div className="box">
+        {/* D_pink */}
+        <div className="back">
+          <img src="/img/logo192.svg" className="App-S_logo" alt="logo" />
         </div>
-      
+        {/* Bat */}
+        <div className="front" onClick={onIncrease}>
+          <img src="/img/Bat1.svg" className="App-S_bat1" alt="logo" />
+        </div>
+        <div className="front">
+          <img src="/img/wicked1.svg" className="App-S_wicked1" alt="logo" />
+          <img src="/img/wicked2.svg" className="App-S_wicked2" alt="logo" />
+          <img src="/img/wicked3.svg" className="App-S_wicked3" alt="logo" />
+          <img src="/img/wicked4.svg" className="App-S_wicked4" alt="logo" />
+        </div>
+      </div>
+
       <div>
         {/* progrss bar */}
         {/* <div>

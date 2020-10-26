@@ -9,10 +9,11 @@ import TopHeader from "../../components/TopHeader";
 
 import { setUserInfo } from "../../redux/entry";
 import { setEntry } from "../../redux/entry";
+import Button from "@material-ui/core/Button";
 
 import axios from "axios";
 
-const List = ({setEntry, setUserInfo, getEntry}) => {
+const List = ({ setEntry, setUserInfo, getEntry }) => {
   let history = useHistory();
 
   //entry.js에 있는 state랑 다름ㅁ
@@ -22,15 +23,15 @@ const List = ({setEntry, setUserInfo, getEntry}) => {
 
   //해당 컴포넌트에서 사용할 응모유저 리스트 useState
   const [entryList, setEntryList] = useState([]);
-  const entryListRedux = entryList.map((entry, idx) => <li key={idx}> {entry} </li>)
+  const entryListRedux = entryList.map((entry, idx) => (
+    <li key={idx}> {entry} </li>
+  ));
 
-  
   useEffect(() => {
-    
     const apiUrlEntry = "http://localhost:8000/api/entry/";
     // console.log("리덕스테스트", globalEntry);
     axios
-      .get(apiUrlEntry,entryList)
+      .get(apiUrlEntry, entryList)
       .then((response) => {
         // console.log("조회완료 데이터: ", response.data);
         setEntryList(response.data);
@@ -56,24 +57,25 @@ const List = ({setEntry, setUserInfo, getEntry}) => {
         {/* {globalEntryScore}점 | {globalEntryName} */}
       </div>
 
-
-
       <div>
         {entryList.map((item, idx) => {
           return (
             <React.Fragment key={item.idx}>
               <div>
-                  {item.score} | {item.name} 
+                {item.score} | {item.name}
               </div>
             </React.Fragment>
           );
         })}
       </div>
 
-
-
-      <button onClick={() => moveToStart()}>처음으로</button>
-
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => moveToStart()}
+      >
+        처음으로
+      </Button>
     </div>
   );
 };
