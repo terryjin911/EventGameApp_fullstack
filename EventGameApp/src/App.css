@@ -269,7 +269,7 @@
 }
 .d-form {
   width: 200px;
-  height: 80vmin;
+  height: 40vmin;
   transform: translateX(40%);
   animation: motion 0.5s linear 0s infinite alternate;
   /* margin-top: 0; */
