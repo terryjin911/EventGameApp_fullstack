@@ -1,13 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
-
 import "./App.css";
 
 import Main from "./page/Main";
+import Game from "./page/Game";
+import Form from "./page/entry/Form";
 import End from "./page/End";
 import List from "./page/entry/List";
-import Form from "./page/entry/Form";
-import Game from "./page/Game";
+
 
 function App() {
   return (

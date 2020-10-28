@@ -23,8 +23,13 @@ const Main = () => {
       <TopHeader />
       {/* D_pink */}
       <div className="back">
+        <div className="wrap">
+          <img src="/img/d-form.svg" className="d-main" alt="logo" />
+        </div>
+      </div>
+      <div className="back">
         <img src="/img/d-chasing.svg" className="d-chasing1" alt="logo" />
-        <img src="/img/d-chasing.svg" className="d-chasing2" alt="logo" />
+        {/* <img src="/img/d-chasing.svg" className="d-chasing2" alt="logo" /> */}
         <img src="/img/d-chasing1.svg" className="d-chasing3" alt="logo" />
         <img src="/img/d-chasing2.svg" className="d-chasing4" alt="logo" />
         <img src="/img/Bat1.svg" className="App-S_logo" alt="logo" />
@@ -42,40 +47,41 @@ const Main = () => {
           </Button>
 
           {/* 랭킹보기 버튼 */}
-          <Button variant="contained" color="info" onClick={() => moveList()}>
+          <Button variant="contained" color="default" onClick={() => moveList()}>
             랭킹
           </Button>
         </div>
-
-        <h3>
+      <div>
+        <h5>
           <p>
-            start버튼을 눌러서 게임시작!
-            <br />
+            으악 할로윈박쥐다ㅠㅠ<br/>
+            박쥐를 무서워하는 흑흑 흑임자도넛을 구해주자!
           </p>
-        </h3>
+        </h5>
 
         <hr />
+        <div className="App-start">
+          <h2>
+            <p>게임설명</p>
+          </h2>
+        </div>
 
-        {/* 게임설명 */}
-        <h2>
-          <p>게임설명</p>
-        </h2>
         <h4>
           <p>
-            주어진 시간은 5초!
+            Tip! 할로윈박쥐의 속도가 줄어들 때가 고득점기회!
             <br />
             <br />
             흑임자도넛을 노리는<br></br>
-            박쥐 쫒아내고 점수를 얻으세요
+            할로윈박쥐를 터치해서 쫒아내고 점수를 얻으세요
           </p>
         </h4>
         <h6>
           <p>
             게임에 참여해주신 분들 중<br />
-            추첨을 통해 신제품 도넛 기프티콘을 보내드려요!
-            <br />
+            추첨을 통해 신제품 도넛 기프티콘을 보내드려요!<br />
           </p>
         </h6>
+        </div>
       </div>
     </div>
   );
