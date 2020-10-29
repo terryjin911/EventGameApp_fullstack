@@ -29,7 +29,7 @@ const Form = ({ setEntry }) => {
   //form data
   //얘도 리스트에 보내줘야하는 게 아닐까?
   const [user, setUser] = useState({
-    regiId: 18,
+    regiId: 1,
     score: scoreRef.current,
     name: "",
     email: "",
@@ -73,26 +73,37 @@ const Form = ({ setEntry }) => {
   //DB로 들어가고있는건 얘
   useEffect(() => {
     var data = {
-      regiId: 23,
-      name: "아니 여기 비워두면 자꾸 Axios가 무시하네..",
-      email: "정말너무하는구만@naver.com",
+      regiId: 1,
+      name: "",
+      email: "",
       score: scoreRef.current,
     };
 
     // Axios 백엔드
-    const apiUrlEntry = "http://localhost:8000/api/entry/";
+    // const apiUrlEntry = "http://localhost:8000/api/entry/";
 
-    // user 응모정보 이름/이메일
-    axios
-      .post(apiUrlEntry, data)
-      .then((response) => {
-        console.log("등록완료데이터:", response.data);
-        // alert("등록완료");
-        // history.push("/entry/List");
-      })
-      .catch((response) => {
-        console.error(response);
-      });
+    // axios
+    //   .get(apiUrlEntry)
+    //   .then((response) => {
+    //     console.log("등록완료데이터:", response.data);
+    //     alert("score axios error 덜덜쓰...");
+    //     data(response.data);
+    //   })
+    //   .catch((response) => {
+    //     console.error(response);
+    //   });
+
+    // // user 응모정보 이름/이메일
+    // axios
+    //   .post(apiUrlEntry, data)
+    //   .then((response) => {
+    //     console.log("등록완료데이터:", response.data);
+    //     // alert("등록완료");
+    //     // history.push("/entry/List");
+    //   })
+    //   .catch((response) => {
+    //     console.error(response);
+    //   });
   });
 
   return (
@@ -155,7 +166,7 @@ const Form = ({ setEntry }) => {
       >
         응모
       </Button>
-      <Button variant="contained" color="info" onClick={() => moveList()}>
+      <Button variant="contained" color="default" onClick={() => moveList()}>
         응모확인
       </Button>
     </div>

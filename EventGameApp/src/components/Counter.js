@@ -57,21 +57,21 @@ function Button() {
         history.push("/entry/input/");
 
         var data = {
-          regiId: 20,
+          regiId: 1,
           name: "",
           email: "",
           score: scoreRef.current,
         };
         // Score를 DB에 쏴버리기
-        const apiUrlEntry = "http://localhost:8000/api/entry/";
-        axios
-          .post(apiUrlEntry, data)
-          .then((response) => {
-            console.log("점수데이터전송:", response.data);
-          })
-          .catch((response) => {
-            console.error(response);
-          });
+        // const apiUrlEntry = "http://localhost:8000/api/entry/";
+        // axios
+        //   .post(apiUrlEntry, data)
+        //   .then((response) => {
+        //     console.log("점수데이터전송:", response.data);
+        //   })
+        //   .catch((response) => {
+        //     console.error(response);
+        //   });
       } else {
         return false;
       }
@@ -96,7 +96,10 @@ function Button() {
       <div className="box">
         {/* D_pink */}
         <div className="back">
+          박쥐박쥐 박쥐는 귀가 박쥐 ( ͡° ͜ʖ ͡°)
           <img src="/img/logo192.svg" className="App-S_logo" alt="logo" />
+          <h3>할로윈박쥐를 터치!!<br/>
+          </h3>
         </div>
         {/* Bat */}
         <div className="front" onClick={onIncrease}>
